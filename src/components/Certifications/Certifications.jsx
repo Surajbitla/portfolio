@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Certifications.css';
 import { FaGraduationCap, FaMicrosoft } from 'react-icons/fa';
-import { SiIbm, SiUdemy, SiSololearn } from 'react-icons/si';
+import { SiIbm, SiUdemy, SiSololearn, SiAmazon } from 'react-icons/si';
 import Modal from '../Modal/Modal';
 
 const Certifications = () => {
@@ -24,40 +24,48 @@ const Certifications = () => {
       certificates: [
         {
           title: "Programming for Everybody",
-          image: "/images/certificates/python.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
+          image: "/images/certificates/Programming for Everybody (Getting Started with Python).jpg",
+          link: "https://coursera.org/verify/Q7WDUA8UHEPM",
           grade: "97.5% - 100%",
           duration: "3-6 weeks",
           date: "2023"
         },
         {
           title: "Python Data Structures",
-          image: "/images/certificates/python.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
+          image: "/images/certificates/Python Data Structures.jpg",
+          link: "https://coursera.org/verify/WSWPLW359PDW",
           grade: "97.5% - 100%",
           duration: "3-6 weeks",
           date: "2023"
         },
         {
           title: "Using Python to Access Web Data",
-          image: "/images/certificates/python.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
+          image: "/images/certificates/Using Python to Access Web Data.jpg",
+          link: "https://coursera.org/verify/8HCDECQXCT6X",
           grade: "97.5% - 100%",
           duration: "3-6 weeks",
           date: "2023"
         },
         {
           title: "Using Databases with Python",
-          image: "/images/certificates/python.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
+          image: "/images/certificates/Using Databases with Python.jpg",
+          link: "https://coursera.org/verify/W57NLCY5FLRN",
           grade: "97.5% - 100%",
           duration: "3-6 weeks",
           date: "2023"
         },
         {
           title: "Capstone: Retrieving, Processing, and Visualizing Data with Python",
-          image: "/images/certificates/python.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
+          image: "/images/certificates/Capstone Python.jpg",
+          link: "https://coursera.org/verify/X4NV7ZNZQ6TM",
+          grade: "97.5% - 100%",
+          duration: "3-6 weeks",
+          date: "2023"
+        },
+        {
+          title: "Python for Everybody - specialization",
+          image: "/images/certificates/Python for Everybody.jpg",
+          link: "https://coursera.org/verify/specialization/HSVEETP3LRFL",
           grade: "97.5% - 100%",
           duration: "3-6 weeks",
           date: "2023"
@@ -245,6 +253,29 @@ const Certifications = () => {
           image: "/images/certificates/udemy.jpg",
           link: "https://udemy.com/verify/your-cert-id",
           date: "2023"
+        }
+      ]
+    },
+    {
+      provider: "Amazon Web Services",
+      icon: <SiAmazon />,
+      logo: "/images/logos/amazon.png",
+      certCount: "2 Certifications",
+      description: "AWS Fundamentals",
+      certificates: [
+        {
+          title: "AWS Cloud Technical Essentials",
+          image: "/images/certificates/AWS Cloud Technical Essentials.jpg",
+          link: "https://www.coursera.org/account/accomplishments/verify/FDUNFJSJ0CNV",
+          grade: "100%",
+          date: "2024"
+        },
+        {
+          title: "Migrating to the AWS Cloud",
+          image: "/images/certificates/Migrating to the AWS Cloud.jpg",
+          link: "https://www.coursera.org/account/accomplishments/verify/YXELCFR311XH",
+          grade: "100%",
+          date: "2024"
         }
       ]
     }
