@@ -1,0 +1,749 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.App {
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.light-mode {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.light-mode section {
+  background-color: var(--light-bg);
+}
+
+.light-mode .card {
+  background-color: var(--card-light-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.dark-mode section {
+  background-color: var(--dark-bg);
+}
+
+.dark-mode .card {
+  background-color: var(--card-dark-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .navbar,
+.dark-mode .footer {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+.light-mode .navbar,
+.light-mode .footer {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.light-mode .section-title {
+  color: var(--light-text);
+}
+
+.dark-mode .section-title {
+  color: var(--dark-text);
+}
+
+.light-mode .activity-card,
+.light-mode .skill-card,
+.light-mode .project-card,
+.light-mode .publication-card {
+  background-color: var(--card-light-bg);
+  color: var(--light-text);
+}
+
+.dark-mode .activity-card,
+.dark-mode .skill-card,
+.dark-mode .project-card,
+.dark-mode .publication-card {
+  background-color: var(--card-dark-bg);
+  color: var(--dark-text);
+}
+
+/* Theme Variables */
+:root {
+  --light-bg: #ffffff;
+  --light-text: #000000;
+  --dark-bg: #000000;
+  --dark-text: #ffffff;
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --card-light-bg: #ffffff;
+  --card-dark-bg: #2d2d2d;
+  --card-light-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --card-dark-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode :root {
+  --navbar-bg: #000000;
+  --navbar-text: #ffffff;
+  --footer-bg: #000000;
+  --footer-text: #ffffff;
+}
+
+/* Dark Mode Styles */
+.dark-mode .navbar,
+.dark-mode .skill-card,
+.dark-mode .highlight-card,
+.dark-mode .stat-item,
+.dark-mode .project-card,
+.dark-mode .experience-card,
+.dark-mode .education-card,
+.dark-mode .publication-card,
+.dark-mode .certification-card,
+.dark-mode .patent-card,
+.dark-mode .award-card,
+.dark-mode .activity-card,
+.dark-mode .contact-form {
+  background-color: #000000; /* Ensure navbar and footer match the background */
+  color: #ffffff; /* Ensure all text is white */
+}
+
+.dark-mode .section-title,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4,
+.dark-mode p {
+  color: #ffffff; /* Ensure all text is white */
+}
+
+.dark-mode .card {
+  background-color: #1a1a1a; /* Darken card backgrounds */
+  color: #ffffff; /* Ensure text on cards is white */
+}
+
+.dark-mode .card:hover {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+}
+
+.dark-mode .navbar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .hero {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.dark-mode .footer {
+  background-color: #000000; /* Ensure navbar and footer match the background */
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 100px;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #007bff;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  background: #0056b3;
+}
+
+.dark-mode .theme-toggle {
+  background: #ffd700;
+  color: #1a1a1a;
+}
+
+.dark-mode .theme-toggle:hover {
+  background: #ffed4a;
+}
+
+/* Loading Animation */
+.loading-container {
+  background: var(--bg-color);
+}
+
+.dark-mode .loading-container {
+  background: rgba(26, 26, 26, 0.9);
+  color: #ffffff;
+}
+
+.dark-mode .loading-spinner {
+  border-color: #2d2d2d;
+  border-top-color: #007bff;
+}
+
+/* Scroll Padding for Fixed Navbar */
+html {
+  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .theme-toggle {
+    top: auto;
+    bottom: 2rem;
+    right: 2rem;
+  }
+}
+
+/* Dark Mode Component-Specific Styles */
+.dark-mode .skill-tag,
+.dark-mode .tech-tag,
+.dark-mode .badge {
+  background-color: rgba(0, 123, 255, 0.2);
+  color: #007bff;
+}
+
+.dark-mode .skill-tag:hover,
+.dark-mode .tech-tag:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.dark-mode .navbar-menu a {
+  color: #ffffff;
+}
+
+.dark-mode .navbar-burger span {
+  background-color: #ffffff;
+}
+
+.dark-mode .experience-timeline::before {
+  background-color: #007bff;
+}
+
+.dark-mode .experience-icon {
+  background-color: #2d2d2d;
+}
+
+.dark-mode .highlight {
+  color: #3498db;
+}
+
+.dark-mode .section-title::after {
+  background-color: #3498db;
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+  background-color: #2d2d2d;
+  border-color: #404040;
+  color: #ffffff;
+}
+
+.dark-mode .form-group input:focus,
+.dark-mode .form-group textarea:focus {
+  border-color: #007bff;
+}
+
+.dark-mode .loading-container {
+  background-color: rgba(26, 26, 26, 0.95);
+}
+
+.dark-mode .scroll-to-top {
+  background-color: #3498db;
+}
+
+.dark-mode .scroll-to-top:hover {
+  background-color: #2980b9;
+}
+
+/* Smooth Transitions */
+.navbar,
+.skill-card,
+.highlight-card,
+.project-card,
+.experience-card,
+.education-card,
+.publication-card,
+.certification-card,
+.patent-card,
+.award-card,
+.activity-card,
+.contact-form,
+.form-group input,
+.form-group textarea,
+body,
+.hero,
+.footer,
+.section-title,
+h1, h2, h3, h4,
+p,
+.navbar-menu a,
+.navbar-burger span {
+  transition: all 0.3s ease;
+}
+
+/* Additional Dark Mode Styles */
+.dark-mode .project-type .type-badge {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+.dark-mode .contact-link {
+  background-color: #2d2d2d;
+  color: #ffffff;
+}
+
+.dark-mode .contact-link:hover {
+  background-color: #3498db;
+}
+
+.dark-mode .achievement-item {
+  background-color: rgba(52, 152, 219, 0.1);
+}
+
+/* Loading Animation Dark Mode */
+.dark-mode .loading-spinner {
+  border-color: #404040;
+  border-top-color: #3498db;
+}
+
+/* Scrollbar Styles */
+.dark-mode::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dark-mode::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark-mode::-webkit-scrollbar-thumb {
+  background: #3498db;
+  border-radius: 5px;
+}
+
+.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: #2980b9;
+}
+
+/* Add to existing dark mode styles */
+
+/* Smooth Theme Transition */
+body,
+.App,
+.navbar,
+.hero,
+.about,
+.skills,
+.experience,
+.education,
+.publications,
+.projects,
+.certifications,
+.patents,
+.awards,
+.activities,
+.contact,
+.footer {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Card Hover Effects */
+.dark-mode .highlight-card:hover,
+.dark-mode .skill-card:hover,
+.dark-mode .project-card:hover,
+.dark-mode .experience-card:hover,
+.dark-mode .education-card:hover,
+.dark-mode .publication-card:hover,
+.dark-mode .certification-card:hover,
+.dark-mode .patent-card:hover,
+.dark-mode .award-card:hover,
+.dark-mode .activity-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.2);
+}
+
+/* Dark Mode Input Fields */
+.dark-mode input::placeholder,
+.dark-mode textarea::placeholder {
+  color: #888;
+}
+
+/* Dark Mode Links */
+.dark-mode a {
+  color: #3498db;
+}
+
+.dark-mode a:hover {
+  color: #2980b9;
+}
+
+/* Dark Mode Tech Tags */
+.dark-mode .tech-tag,
+.dark-mode .skill-tag,
+.dark-mode .badge {
+  background-color: rgba(52, 152, 219, 0.15);
+  color: #3498db;
+}
+
+.dark-mode .tech-tag:hover,
+.dark-mode .skill-tag:hover {
+  background-color: #3498db;
+  color: #1a1a1a;
+}
+
+/* Dark Mode Timeline */
+.dark-mode .experience-timeline::before {
+  background-color: #3498db;
+}
+
+/* Dark Mode Stats */
+.dark-mode .stat-number {
+  color: #3498db;
+}
+
+/* Dark Mode Loading Animation */
+.dark-mode .loading-spinner {
+  border-color: #2d2d2d;
+  border-top-color: #3498db;
+}
+
+/* Dark Mode Scroll to Top */
+.dark-mode .scroll-to-top {
+  background-color: #3498db;
+}
+
+.dark-mode .scroll-to-top:hover {
+  background-color: #2980b9;
+}
+
+/* Dark Mode Theme Toggle Animation */
+.theme-toggle {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Dark Mode Selection */
+.dark-mode ::selection {
+  background-color: #3498db;
+  color: #ffffff;
+}
+
+/* Dark Mode Custom Scrollbar */
+.dark-mode::-webkit-scrollbar {
+  width: 12px;
+}
+
+.dark-mode::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark-mode::-webkit-scrollbar-thumb {
+  background: #3498db;
+  border-radius: 6px;
+}
+
+.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: #2980b9;
+}
+
+.dark-mode .icon,
+.dark-mode .text,
+.dark-mode .link {
+  color: #ffffff; /* Ensure all text and icons are white */
+}
+
+.dark-mode .link:hover {
+  color: #3498db; /* Add hover color for links */
+}
+
+/* Update the light/dark mode base styles */
+.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark-mode {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Update component background colors for light mode */
+.light-mode .navbar,
+.light-mode .hero,
+.light-mode .about,
+.light-mode .skills,
+.light-mode .experience,
+.light-mode .education,
+.light-mode .publications,
+.light-mode .projects,
+.light-mode .certifications,
+.light-mode .patents,
+.light-mode .awards,
+.light-mode .activities,
+.light-mode .contact {
+  background-color: #ffffff;
+}
+
+/* Update card styles for light mode */
+.light-mode .activity-card,
+.light-mode .skill-card,
+.light-mode .project-card,
+.light-mode .publication-card,
+.light-mode .certification-card,
+.light-mode .education-card,
+.light-mode .award-card {
+  background-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Update text colors for light mode */
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode p {
+  color: #000000;
+}
+
+/* Update section backgrounds for light mode */
+.light-mode .section-title {
+  color: #000000;
+}
+
+/* Card styles for light mode */
+.light-mode .experience-card,
+.light-mode .certification-card,
+.light-mode .activity-card {
+  background-color: var(--card-light-bg);
+  box-shadow: var(--card-light-shadow);
+  color: #000000;
+}
+
+.light-mode .experience-card h3,
+.light-mode .certification-card h3,
+.light-mode .activity-card h3 {
+  color: #000000;
+}
+
+.light-mode .experience-card p,
+.light-mode .certification-card p,
+.light-mode .activity-card p {
+  color: #666666;
+}
+
+/* Card styles for dark mode */
+.dark-mode .experience-card,
+.dark-mode .certification-card,
+.dark-mode .activity-card {
+  background-color: var(--card-dark-bg);
+  box-shadow: var(--card-dark-shadow);
+  color: #ffffff;
+}
+
+.dark-mode .experience-card h3,
+.dark-mode .certification-card h3,
+.dark-mode .activity-card h3 {
+  color: #ffffff;
+}
+
+.dark-mode .experience-card p,
+.dark-mode .certification-card p,
+.dark-mode .activity-card p {
+  color: #b3b3b3;
+}
+
+/* Tech tags and badges */
+.tech-tag,
+.badge {
+  transition: all 0.3s ease;
+}
+
+.light-mode .tech-tag,
+.light-mode .badge {
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.dark-mode .tech-tag,
+.dark-mode .badge {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+/* Update the dark mode background colors */
+:root {
+  --dark-bg: #000000;
+  --dark-card-bg: #1a1a1a;
+  --light-bg: #ffffff;
+  --light-card-bg: #ffffff;
+}
+
+/* Dark mode styles */
+.dark-mode {
+  background-color: var(--dark-bg);
+}
+
+.dark-mode section {
+  background-color: var(--dark-bg);
+}
+
+.dark-mode .about,
+.dark-mode .experience,
+.dark-mode .certifications,
+.dark-mode .projects,
+.dark-mode .publications,
+.dark-mode .patents,
+.dark-mode .awards,
+.dark-mode .activities,
+.dark-mode .contact {
+  background-color: var(--dark-bg);
+}
+
+/* Dark mode card styles */
+.dark-mode .highlight-card,
+.dark-mode .experience-card,
+.dark-mode .certification-card,
+.dark-mode .project-card,
+.dark-mode .publication-card,
+.dark-mode .patent-card,
+.dark-mode .award-card,
+.dark-mode .activity-card {
+  background-color: var(--dark-card-bg);
+}
+
+/* Add to your existing App.css */
+.App {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Smooth transitions for all elements */
+*,
+*::before,
+*::after {
+  transition: background-color 0.5s ease,
+              color 0.5s ease,
+              border-color 0.5s ease,
+              box-shadow 0.5s ease;
+}
+
+/* Add a cool theme toggle animation */
+.theme-toggle {
+  animation: spin 0.5s ease;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add subtle section entrance animations */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add staggered animation delays for cards */
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Add a subtle gradient animation to the background in dark mode */
+.dark-mode {
+  background: linear-gradient(45deg, #000000, #1a1a1a);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Add a subtle hover effect for all cards */
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.card:hover::after {
+  transform: translateX(100%);
+}
+
+/* Add these to your existing App.css */
+.card-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.light-mode .card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
+  background: rgba(0, 123, 255, 0.02);
+}
+
+.dark-mode .card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+  background: #2d2d2d;
+}
+
+/* Add this class to all your cards */
+.activity-card,
+.award-card,
+.patent-card,
+.project-card {
+  transition: all 0.3s ease;
+}

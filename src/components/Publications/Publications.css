@@ -1,0 +1,93 @@
+.publications {
+  padding: 80px 0;
+  background-color: #000000; /* Set publications section background to black */
+  min-height: 100vh;
+}
+
+.publications-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.publications-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.publication-card {
+  background: #1a1a1a; /* Darken card background */
+  color: #ffffff; /* Ensure text is white */
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.publication-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3); /* Increased blue light intensity */
+}
+
+.publication-icon {
+  font-size: 2rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.publication-card h3 {
+  font-size: 1.3rem;
+  color: #2d3436;
+  margin-bottom: 1rem;
+}
+
+.publication-conference {
+  color: #007bff;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.publication-description {
+  color: #b3b3b3; /* Lighter text for description */
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.publication-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.publication-links a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.publication-links a:hover {
+  color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .publications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .publication-card {
+    padding: 1.5rem;
+  }
+}
+
+.dark-mode .publication-card {
+  background: #1a1a1a;
+}
+
+.dark-mode .publication-card h3,
+.dark-mode .publication-conference,
+.dark-mode .publication-description {
+  color: #ffffff;
+}
