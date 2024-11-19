@@ -747,3 +747,50 @@ section {
 .project-card {
   transition: all 0.3s ease;
 }
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 123, 255, 0.3);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 123, 255, 0.5);
+}
+
+/* Light mode scrollbar */
+.light-mode::-webkit-scrollbar-thumb {
+  background: rgba(0, 123, 255, 0.3);
+}
+
+.light-mode::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 123, 255, 0.5);
+}
+
+/* Dark mode scrollbar */
+.dark-mode::-webkit-scrollbar-thumb {
+  background: rgba(0, 123, 255, 0.2);
+}
+
+.dark-mode::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 123, 255, 0.4);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 123, 255, 0.3) transparent;
+}
+
+.dark-mode * {
+  scrollbar-color: rgba(0, 123, 255, 0.2) transparent;
+}

@@ -1,40 +1,96 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { FaBars, FaTimes } from 'react-icons/fa';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  useEffect(() => {
+    const handleScroll = () => {
+      // Get all sections and navbar height for offset
+      const sections = document.querySelectorAll('section[id]');
+      const navHeight = document.querySelector('.navbar').offsetHeight;
+      const scrollPosition = window.scrollY + navHeight + 50; // Added extra offset for better detection
+
+      // Find the current section
+      let current = '';
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          current = section.getAttribute('id');
+          console.log('Current section:', current); // Debug log
+        }
+      });
+
+      if (current !== '') {
+        setActiveSection(current);
+      }
+    };
+
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+    
+    // Call once on mount to set initial active section
+    handleScroll();
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleNavClick = (e, sectionId) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    const navHeight = document.querySelector('.navbar').offsetHeight;
+    
+    // Calculate the scroll position accounting for navbar height
+    const scrollPosition = section.offsetTop - navHeight;
+    
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: 'smooth'
+    });
+
+    setActiveSection(sectionId);
   };
 
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
+  // Navigation items array
+  const navItems = [
+    ['About', 'about'],
+    ['Skills', 'skills'],
+    ['Experience', 'experience'],
+    ['Education', 'education'],
+    ['Publications', 'publications'],
+    ['Projects', 'projects'],
+    ['Certifications', 'certifications'],
+    ['Patents', 'patents'],
+    ['Awards', 'awards'],
+    ['Activities', 'activities'],
+    ['Contact', 'contact']
+  ];
 
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <a href="#home" onClick={closeMenu}>Suraj Bitla</a>
+        <a 
+          href="#home" 
+          onClick={(e) => handleNavClick(e, 'home')}
+          className={activeSection === 'home' ? 'active' : ''}
+        >
+          Suraj Bitla
+        </a>
       </div>
-      
-      <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
-        <a href="#about" onClick={closeMenu}>About</a>
-        <a href="#skills" onClick={closeMenu}>Skills</a>
-        <a href="#experience" onClick={closeMenu}>Experience</a>
-        <a href="#education" onClick={closeMenu}>Education</a>
-        <a href="#publications" onClick={closeMenu}>Publications</a>
-        <a href="#projects" onClick={closeMenu}>Projects</a>
-        <a href="#certifications" onClick={closeMenu}>Certifications</a>
-        <a href="#patents" onClick={closeMenu}>Patents</a>
-        <a href="#awards" onClick={closeMenu}>Awards</a>
-        <a href="#activities" onClick={closeMenu}>Activities</a>
-        <a href="#contact" onClick={closeMenu}>Contact</a>
-      </div>
-
-      <div className="navbar-burger" onClick={toggleMenu}>
-        {isOpen ? <FaTimes /> : <FaBars />}
+      <div className="navbar-menu">
+        {navItems.map(([label, id]) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={activeSection === id ? 'active' : ''}
+            onClick={(e) => handleNavClick(e, id)}
+          >
+            {label}
+          </a>
+        ))}
       </div>
     </nav>
   );
