@@ -33,10 +33,10 @@ const About = () => {
         <div className="about-content">
           <div className="about-text">
             <p className="about-summary">
-              Pursuing a Master's degree in Computer Science from Rowan University, I bring extensive experience in Python, Java, C++, JavaScript, ReactJS, and ASP.NET. With a strong foundation in machine learning, web development, and cloud technologies (AWS and Azure), I have developed applications that enhance user experience and project efficiency, including advanced driver-assistance systems and edge computing.
+            Pursuing a Master’s degree in Computer Science from Rowan University, I am an AI Engineer and Full Stack Developer with a passion for building innovative solutions. With a strong foundation in machine learning, web development, and cloud technologies, I have successfully designed and implemented scalable systems, edge computing frameworks, and advanced driver-assistance systems (ADAS). My expertise lies in creating high-performance applications that enhance user experience and operational efficiency.
             </p>
             <p className="about-description">
-              My roles at Creditsafe Technology and Accenture have honed my skills in client collaboration, problem-solving, and agile project delivery. Committed to continuous learning, I have completed multiple certifications in data science and programming. Anticipating my graduation in December 2024, I am eager to take on new challenges and contribute to innovative projects.
+            I bring hands-on experience from my roles at Creditsafe Technology and Accenture, where I collaborated with clients to solve complex challenges through agile methodologies. Committed to continuous learning, I have earned multiple certifications in data science, AI, and programming, fueling my drive for innovation and growth. As I anticipate my graduation in December 2024, I am eager to apply my skills to cutting-edge projects that make a meaningful impact.
             </p>
           </div>
 
@@ -47,7 +47,7 @@ const About = () => {
                   {highlight.icon}
                 </div>
                 <h3>{highlight.title}</h3>
-                <p>{highlight.description}</p>
+                <p className="highlight-description">{highlight.description}</p>
               </div>
             ))}
           </div>
@@ -58,7 +58,7 @@ const About = () => {
               <span className="stat-label">Years Experience</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">20+</span>
+              <span className="stat-number">30+</span>
               <span className="stat-label">Certifications</span>
             </div>
             <div className="stat-item">

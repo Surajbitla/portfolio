@@ -125,7 +125,6 @@ const Hero = () => {
           <p>
             Specializing in AI-Driven Solutions, Scalable Systems, and Web Development
           </p>
-          <p className="animate-slide-down-delay-2">Transforming ideas into high-performance, scalable solutions that make a difference.</p>
           <div className="hero-buttons animate-slide-up">
             <a href="#contact" className="btn primary">Contact Me</a>
             <a href="#projects" className="btn secondary">View Projects</a>
