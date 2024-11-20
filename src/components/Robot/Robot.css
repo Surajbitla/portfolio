@@ -124,7 +124,8 @@
   border-radius: 15px;
   font-size: 0.95rem;
   line-height: 1.5;
-  animation: messageSlide 0.3s ease;
+  animation: messageSlide 0.3s ease forwards;
+  transform-origin: bottom;
 }
 
 .message p {
@@ -139,9 +140,10 @@
   color: #333;
 }
 
-.message.user {
+.message.user,
+.message.user p {
   background: linear-gradient(135deg, #007bff, #00bfff);
-  color: white;
+  color: white !important;
   align-self: flex-end;
   border-bottom-right-radius: 5px;
 }
@@ -167,9 +169,9 @@
 }
 
 .chat-input {
-  padding: 20px;
+  padding: 15px;
   display: flex;
-  gap: 10px;
+  gap: 8px;
   background: white;
   border-top: 1px solid #eee;
 }
@@ -198,6 +200,10 @@
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .chat-input button:hover {
@@ -217,8 +223,14 @@
 }
 
 @keyframes messageSlide {
-  from { transform: translateY(10px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Custom scrollbar */
@@ -290,4 +302,153 @@
     font-size: 0.9rem;
     padding: 10px 20px;
   }
+
+  /* Hide suggestions in small window */
+  .chat-window:not(.maximized) .suggested-questions {
+    display: none !important;
+  }
+
+  /* Adjust send button for mobile */
+  .chat-window:not(.maximized) .chat-input {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .chat-window:not(.maximized) .chat-input button {
+    padding: 10px;
+    min-width: 40px;
+  }
+
+  .chat-window:not(.maximized) .send-text {
+    display: none;
+  }
+
+  .chat-window:not(.maximized) .send-icon {
+    display: inline;
+  }
+
+  /* Make input take more space */
+  .chat-window:not(.maximized) .chat-input input {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Add typing animation */
+.typing-indicator {
+  display: flex;
+  gap: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  align-self: flex-start;
+}
+
+.typing-dot {
+  width: 8px;
+  height: 8px;
+  background: #007bff;
+  border-radius: 50%;
+  animation: typingBounce 1.3s infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes typingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-4px); }
+}
+
+/* Style voice button */
+.voice-btn {
+  padding: 12px !important;
+  min-width: 45px;
+  background: linear-gradient(135deg, #007bff, #00bfff);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.voice-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.2);
+}
+
+/* Add suggested questions */
+.suggested-questions {
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  border-top: 1px solid #eee;
+}
+
+.suggested-question-btn {
+  padding: 8px 15px;
+  background: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.suggested-question-btn:hover {
+  background: rgba(0, 123, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Dark mode adjustments */
+.dark-mode .chat-input {
+  background: #1a1a1a;
+  border-top-color: #333;
+}
+
+.dark-mode .suggested-questions {
+  background: #1a1a1a;
+  border-top-color: #333;
+}
+
+.dark-mode .suggested-question-btn {
+  background: rgba(0, 123, 255, 0.2);
+  color: #007bff;
+}
+
+/* Hide send text on mobile, show icon */
+.send-text {
+  display: inline;
+}
+
+.send-icon {
+  display: none;
+}
+
+/* Add a nice pulse effect to the robot when new message arrives */
+@keyframes robotPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.new-message .robot-gif {
+  animation: robotPulse 0.5s ease;
+}
+
+/* Add a subtle glow effect to the chat window */
+.chat-window {
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15);
+  animation: glowPulse 2s infinite;
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15); }
+  50% { box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3); }
+  100% { box-shadow: 0 10px 30px rgba(0, 123, 255, 0.15); }
 } 

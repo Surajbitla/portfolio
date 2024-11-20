@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Robot.css';
-import { FaTimes, FaExpand, FaCompress, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaTimes, FaExpand, FaCompress, FaExternalLinkAlt, FaMicrophone, FaMicrophoneSlash, FaPaperPlane, FaChevronUp, FaChevronDown } from 'react-icons/fa';
 
 const Robot = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -17,6 +17,9 @@ const Robot = () => {
       type: 'bot' 
     }
   ]);
+  const [isListening, setIsListening] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const [hasNewMessage, setHasNewMessage] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -124,6 +127,9 @@ const Robot = () => {
     if (!inputMessage.trim()) return;
 
     setMessages(prev => [...prev, { text: inputMessage, type: 'user' }]);
+    setInputMessage('');
+    setIsTyping(true);
+    setHasNewMessage(true);
     
     const response = getBotResponse(inputMessage);
     setTimeout(() => {
@@ -132,10 +138,35 @@ const Robot = () => {
         type: 'bot',
         action: response.action 
       }]);
-    }, 500);
-
-    setInputMessage('');
+      setIsTyping(false);
+      setTimeout(() => setHasNewMessage(false), 500);
+    }, 1000);
   };
+
+  const startVoiceRecognition = () => {
+    if ('webkitSpeechRecognition' in window) {
+      const recognition = new window.webkitSpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+
+      recognition.onstart = () => setIsListening(true);
+      recognition.onend = () => setIsListening(false);
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setInputMessage(transcript);
+        handleSendMessage({ preventDefault: () => {} });
+      };
+
+      recognition.start();
+    }
+  };
+
+  const suggestedQuestions = [
+    "Tell me about your projects",
+    "What are your skills?",
+    "Show me your publications",
+    "What certifications do you have?"
+  ];
 
   if (!isVisible) return null;
 
@@ -183,7 +214,30 @@ const Robot = () => {
                 )}
               </div>
             ))}
+            {isTyping && (
+              <div className="typing-indicator">
+                <div className="typing-dot"></div>
+                <div className="typing-dot"></div>
+                <div className="typing-dot"></div>
+              </div>
+            )}
           </div>
+          {isMaximized && (
+            <div className="suggested-questions">
+              {suggestedQuestions.map((question, index) => (
+                <button
+                  key={index}
+                  className="suggested-question-btn"
+                  onClick={() => {
+                    setInputMessage(question);
+                    handleSendMessage({ preventDefault: () => {} });
+                  }}
+                >
+                  {question}
+                </button>
+              ))}
+            </div>
+          )}
           <form onSubmit={handleSendMessage} className="chat-input">
             <input
               type="text"
@@ -191,7 +245,17 @@ const Robot = () => {
               onChange={(e) => setInputMessage(e.target.value)}
               placeholder="Ask about Suraj's portfolio..."
             />
-            <button type="submit">Send</button>
+            <button 
+              type="button" 
+              className="voice-btn"
+              onClick={startVoiceRecognition}
+            >
+              {isListening ? <FaMicrophoneSlash /> : <FaMicrophone />}
+            </button>
+            <button type="submit">
+              <span className="send-text">Send</span>
+              <span className="send-icon"><FaPaperPlane /></span>
+            </button>
           </form>
         </div>
       )}
