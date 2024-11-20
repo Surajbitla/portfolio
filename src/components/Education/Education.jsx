@@ -5,19 +5,22 @@ import { FaGraduationCap } from 'react-icons/fa';
 const Education = () => {
   const education = [
     {
+      icon: <FaGraduationCap />,
       degree: "Master of Science in Computer Science",
-      school: "Rowan University",
+      university: "Rowan University",
       location: "Glassboro-New Jersey",
-      year: "2023",
-      gpa: "4/4",
-      specialization: "Data Mining, Web Development, Data Warehousing, Agile Software Development"
+      period: "2023",
+      gpa: "GPA: 4/4",
+      specialization: "Specialization: Data Mining, Web Development, Data Warehousing, Agile Software Development"
     },
     {
-      degree: "Bachelor of Technology (B. Tech), Computer Science",
-      school: "Sreenidhi Institute of Science & Technology",
-      location: "Ghatkesar-Hyderabad",
-      year: "2016 - 2020",
-      gpa: "9.35/10"
+      icon: <FaGraduationCap />,
+      degree: "Bachelor of Technology in Computer Science",
+      university: "Lovely Professional University",
+      location: "Punjab, India",
+      period: "2016-2020",
+      gpa: "GPA: 3.5/4",
+      specialization: "Specialization: Software Engineering, Database Management, Computer Networks"
     }
   ];
 
@@ -29,18 +32,16 @@ const Education = () => {
           {education.map((edu, index) => (
             <div className="education-card" key={index}>
               <div className="education-icon">
-                <FaGraduationCap />
+                {edu.icon}
               </div>
-              <h3>{edu.degree}</h3>
-              <h4>{edu.school}</h4>
-              <p className="education-location">{edu.location}</p>
-              <p className="education-year">{edu.year}</p>
-              <p className="education-gpa">GPA: {edu.gpa}</p>
-              {edu.specialization && (
-                <p className="education-specialization">
-                  Specialization: {edu.specialization}
-                </p>
-              )}
+              <div className="education-content">
+                <h3>{edu.degree}</h3>
+                <p className="education-university">{edu.university}</p>
+                <p className="education-location">{edu.location}</p>
+                <p className="education-period">{edu.period}</p>
+                <p className="education-gpa">{edu.gpa}</p>
+                <p className="education-specialization">{edu.specialization}</p>
+              </div>
             </div>
           ))}
         </div>

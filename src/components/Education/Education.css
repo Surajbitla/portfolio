@@ -1,6 +1,6 @@
 .education {
   padding: 80px 0;
-  background-color: #000000; /* Set education section background to black */
+  background-color: #000000;
   min-height: 100vh;
 }
 
@@ -29,18 +29,38 @@
 }
 
 .education-card {
-  background: #1a1a1a; /* Darken card background */
-  color: #ffffff; /* Ensure text is white */
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  margin-left: 50px;
   position: relative;
+  /* overflow: hidden; */
+  margin-left: 50px;
+}
+
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(0, 210, 255, 0.2));
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.education-card:hover::before {
+  opacity: 1;
 }
 
 .education-card:hover {
-  transform: translateX(10px);
+  transform: translateY(-5px);
+}
+
+.education-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .education-icon {
@@ -49,20 +69,28 @@
   top: 2rem;
   width: 50px;
   height: 50px;
-  background: white;
+  background: #ffffff !important;
+  border: 2px solid #007bff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
-  color: #007bff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #007bff !important;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+  z-index: 10;
+}
+
+.education-icon svg {
+  color: #007bff !important;
+  width: 1.5em !important;
+  height: 1.5em !important;
 }
 
 .education-content h3 {
   font-size: 1.4rem;
-  color: #ffffff; /* Ensure text is white */
   margin-bottom: 0.5rem;
+  color: var(--text-primary);
 }
 
 .education-content h4 {
@@ -71,33 +99,81 @@
   margin-bottom: 0.5rem;
 }
 
+.education-university {
+  color: #007bff;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
 .education-location,
 .education-period {
-  color: #b3b3b3; /* Lighter text for location and period */
+  color: var(--text-secondary);
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
 
 .education-details {
-  list-style-type: none;
-  padding: 0;
   margin: 1.5rem 0;
+  color: var(--text-primary);
 }
 
-.education-details li {
-  color: #b3b3b3; /* Lighter text for details */
-  line-height: 1.6;
-  padding-left: 1.5rem;
-  position: relative;
-  margin-bottom: 0.5rem;
-}
-
-.education-details li::before {
-  content: '•';
+.education-gpa {
   color: #007bff;
-  position: absolute;
-  left: 0;
-  font-size: 1.2rem;
+  font-weight: 500;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.education-specialization {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+/* Light mode */
+.light-mode .education-card {
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .education-card:hover {
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
+  background: rgba(0, 123, 255, 0.02);
+}
+
+.light-mode .education-content h3 {
+  color: #2d3436;
+}
+
+.light-mode .education-location,
+.light-mode .education-period {
+  color: #636e72;
+}
+
+.light-mode .education-specialization {
+  color: #636e72;
+}
+
+/* Dark mode */
+.dark-mode .education-card {
+  background: #1a1a1a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .education-card:hover {
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+  background: #2d2d2d;
+}
+
+.dark-mode .education-content h3 {
+  color: #ffffff;
+}
+
+.dark-mode .education-location,
+.dark-mode .education-period,
+.dark-mode .education-specialization {
+  color: #b3b3b3;
 }
 
 @media (max-width: 768px) {
@@ -120,26 +196,64 @@
     font-size: 1.2rem;
   }
 
-  .education-content h4 {
+  .education-university {
     font-size: 1.1rem;
   }
 }
 
-/* Dark mode styles */
-.dark-mode .education-card {
-  background: #1a1a1a;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+.info-icon {
+  margin-right: 0.5rem;
+  color: #007bff;
 }
 
-.dark-mode .education-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
-  background: #2d2d2d;
+.education-university,
+.education-location,
+.education-period,
+.education-gpa,
+.education-specialization {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
 }
 
-/* Light mode */
-.light-mode .education-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
-  background: rgba(0, 123, 255, 0.02);
+.education-university {
+  color: #007bff;
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.education-university span {
+  color: #007bff;
+}
+
+.education-location span,
+.education-period span {
+  color: var(--text-secondary);
+}
+
+.education-gpa {
+  color: #007bff;
+  font-weight: 500;
+}
+
+.education-specialization {
+  margin-top: 1rem;
+}
+
+.education-specialization span {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Update light/dark mode text colors */
+.light-mode .education-location span,
+.light-mode .education-period span,
+.light-mode .education-specialization span {
+  color: #636e72;
+}
+
+.dark-mode .education-location span,
+.dark-mode .education-period span,
+.dark-mode .education-specialization span {
+  color: #b3b3b3;
 }
