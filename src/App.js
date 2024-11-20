@@ -17,6 +17,7 @@ import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Loading from './components/Loading/Loading';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import Robot from './components/Robot/Robot';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -64,6 +65,7 @@ function App() {
       <Contact />
       <Footer />
       <ScrollToTop />
+      <Robot />
     </div>
   );
 }

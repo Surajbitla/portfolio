@@ -87,7 +87,7 @@ const Navbar = () => {
           onClick={(e) => handleNavClick(e, 'home')}
           className={activeSection === 'home' ? 'active' : ''}
         >
-          Suraj Bitla
+          My Portfolio
         </a>
       </div>
       <div className="navbar-menu">
