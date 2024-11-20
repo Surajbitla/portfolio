@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Robot.css';
+import { FaTimes, FaExpand, FaCompress, FaExternalLinkAlt } from 'react-icons/fa';
 
 const Robot = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [isMaximized, setIsMaximized] = useState(false);
   const [inputMessage, setInputMessage] = useState('');
   const [messages, setMessages] = useState([
     { 
@@ -26,7 +28,6 @@ const Robot = () => {
       const scrollPosition = window.scrollY;
       const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
       
-      // Show robot only after hero section
       if (scrollPosition >= heroBottom - 100) {
         setIsVisible(true);
       } else {
@@ -38,43 +39,80 @@ const Robot = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    const navHeight = document.querySelector('.navbar').offsetHeight;
+    
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - navHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const getBotResponse = (userMessage) => {
     const message = userMessage.toLowerCase();
     
-    // Define responses for different topics
     const responses = {
       projects: {
         keywords: ['project', 'projects', 'work'],
-        response: "Suraj has worked on several impressive projects including:\n• E-commerce Platform (ShopRight)\n• Real Estate Sales Analysis\n• DC Travel Guide\n• Enhanced Assisted Vision\nWhich project would you like to know more about?"
+        response: "Suraj has worked on several impressive projects including:\n• E-commerce Platform (ShopRight)\n• Real Estate Sales Analysis\n• DC Travel Guide\n• Enhanced Assisted Vision\nWhich project would you like to know more about?",
+        action: {
+          text: "View All Projects",
+          section: "projects"
+        }
       },
       education: {
         keywords: ['education', 'study', 'university', 'degree'],
-        response: "Suraj holds:\n• MS in Computer Science from Rowan University (GPA: 4/4)\n• BTech in Computer Science from Lovely Professional University\nHe specializes in Data Mining, Web Development, and AI."
+        response: "Suraj holds:\n• MS in Computer Science from Rowan University (GPA: 4/4)\n• BTech in Computer Science from Lovely Professional University\nHe specializes in Data Mining, Web Development, and AI.",
+        action: {
+          text: "View Education Details",
+          section: "education"
+        }
       },
       skills: {
         keywords: ['skills', 'technologies', 'tech stack', 'programming'],
-        response: "Suraj's key skills include:\n• Full Stack Development (Python, ReactJS, ASP.NET)\n• Cloud Technologies (AWS, Azure)\n• Machine Learning & AI\n• Database Management\nWould you like specific details about any of these areas?"
+        response: "Suraj's key skills include:\n• Full Stack Development (Python, ReactJS, ASP.NET)\n• Cloud Technologies (AWS, Azure)\n• Machine Learning & AI\n• Database Management\nWould you like specific details about any of these areas?",
+        action: {
+          text: "View All Skills",
+          section: "skills"
+        }
       },
       experience: {
         keywords: ['experience', 'work', 'job', 'career'],
-        response: "Suraj's professional experience includes:\n• Graduate Research Assistant at Rowan University\n• Full Stack Engineer at Creditsafe Technology\n• Application Development Associate at Accenture"
+        response: "Suraj's professional experience includes:\n• Graduate Research Assistant at Rowan University\n• Full Stack Engineer at Creditsafe Technology\n• Application Development Associate at Accenture",
+        action: {
+          text: "View Full Experience",
+          section: "experience"
+        }
       },
       publications: {
         keywords: ['publication', 'research', 'paper'],
-        response: "Suraj has published research on:\n• Computation Offloading for Precision Agriculture\n• SplitTracer: A Cooperative Inference Evaluation Toolkit\nBoth were presented at IEEE ICFEC 2024."
+        response: "Suraj has published research on:\n• Computation Offloading for Precision Agriculture\n• SplitTracer: A Cooperative Inference Evaluation Toolkit\nBoth were presented at IEEE ICFEC 2024.",
+        action: {
+          text: "View Publications",
+          section: "publications"
+        }
       },
       certifications: {
         keywords: ['certification', 'certificate', 'courses'],
-        response: "Suraj has 30+ certifications including:\n• IBM Data Science Professional Certificate\n• Multiple AWS and Azure certifications\n• NPTEL certifications with excellent performance"
+        response: "Suraj has 30+ certifications including:\n• IBM Data Science Professional Certificate\n• Multiple AWS and Azure certifications\n• NPTEL certifications with excellent performance",
+        action: {
+          text: "View Certifications",
+          section: "certifications"
+        }
       },
-      default: "I can tell you about Suraj's projects, education, skills, experience, publications, or certifications. What would you like to know?"
+      default: {
+        response: "I can tell you about Suraj's projects, education, skills, experience, publications, or certifications. What would you like to know?",
+        action: null
+      }
     };
 
-    // Find matching response
     for (const category in responses) {
       if (category === 'default') continue;
       if (responses[category].keywords.some(keyword => message.includes(keyword))) {
-        return responses[category].response;
+        return responses[category];
       }
     }
 
@@ -85,13 +123,15 @@ const Robot = () => {
     e.preventDefault();
     if (!inputMessage.trim()) return;
 
-    // Add user message
     setMessages(prev => [...prev, { text: inputMessage, type: 'user' }]);
     
-    // Get and add bot response
-    const botResponse = getBotResponse(inputMessage);
+    const response = getBotResponse(inputMessage);
     setTimeout(() => {
-      setMessages(prev => [...prev, { text: botResponse, type: 'bot' }]);
+      setMessages(prev => [...prev, { 
+        text: response.response, 
+        type: 'bot',
+        action: response.action 
+      }]);
     }, 500);
 
     setInputMessage('');
@@ -112,10 +152,20 @@ const Robot = () => {
       </div>
 
       {isChatOpen && (
-        <div className="chat-window">
+        <div className={`chat-window ${isMaximized ? 'maximized' : ''}`}>
           <div className="chat-header">
             <span>Chat with Portfolio Assistant</span>
-            <button onClick={() => setIsChatOpen(false)}>×</button>
+            <div className="chat-controls">
+              <button 
+                className="maximize-btn"
+                onClick={() => setIsMaximized(!isMaximized)}
+              >
+                {isMaximized ? <FaCompress /> : <FaExpand />}
+              </button>
+              <button onClick={() => setIsChatOpen(false)}>
+                <FaTimes />
+              </button>
+            </div>
           </div>
           <div className="chat-messages">
             {messages.map((msg, index) => (
@@ -123,6 +173,14 @@ const Robot = () => {
                 {msg.text.split('\n').map((line, i) => (
                   <p key={i}>{line}</p>
                 ))}
+                {msg.action && (
+                  <button 
+                    className="action-link"
+                    onClick={() => scrollToSection(msg.action.section)}
+                  >
+                    <FaExternalLinkAlt /> {msg.action.text}
+                  </button>
+                )}
               </div>
             ))}
           </div>
