@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Certifications.css';
 import { FaGraduationCap, FaMicrosoft } from 'react-icons/fa';
-import { SiIbm, SiUdemy, SiSololearn, SiAmazon } from 'react-icons/si';
+import { SiIbm, SiUdemy, SiSololearn, SiAmazon, SiReact } from 'react-icons/si';
 import Modal from '../Modal/Modal';
 
 const Certifications = () => {
@@ -31,49 +31,49 @@ const Certifications = () => {
           title: "Programming for Everybody",
           image: "/images/certificates/Programming for Everybody (Getting Started with Python).jpg",
           link: "https://coursera.org/verify/Q7WDUA8UHEPM",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          grade: "100%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Python Data Structures",
           image: "/images/certificates/Python Data Structures.jpg",
           link: "https://coursera.org/verify/WSWPLW359PDW",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          grade: "100%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Using Python to Access Web Data",
           image: "/images/certificates/Using Python to Access Web Data.jpg",
           link: "https://coursera.org/verify/8HCDECQXCT6X",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          grade: "100%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Using Databases with Python",
           image: "/images/certificates/Using Databases with Python.jpg",
           link: "https://coursera.org/verify/W57NLCY5FLRN",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          grade: "100%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Capstone: Retrieving, Processing, and Visualizing Data with Python",
           image: "/images/certificates/Capstone Python.jpg",
           link: "https://coursera.org/verify/X4NV7ZNZQ6TM",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          grade: "97.5%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Python for Everybody - specialization",
           image: "/images/certificates/Python for Everybody.jpg",
           link: "https://coursera.org/verify/specialization/HSVEETP3LRFL",
           grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          duration: "3-6 weeks"
+          // ,date: "2023"
         }
       ]
     },
@@ -86,67 +86,67 @@ const Certifications = () => {
       certificates: [
         {
           title: "What is Data Science",
-          image: "/images/certificates/ibm.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          image: "/images/certificates/What is Data Science.jpg",
+          link: "https://coursera.org/verify/ST6UE9QFT2FU",
+          grade: "100%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Tools for Data Science",
-          image: "/images/certificates/ibm.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          image: "/images/certificates/Tools for Data Science.jpg",
+          link: "https://coursera.org/verify/PBBJ4Z8YQ6SL",
+          grade: "99.25",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Data Science Methodology",
-          image: "/images/certificates/ibm.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          image: "/images/certificates/Data Science Methodology.jpg",
+          link: "https://coursera.org/verify/3HREKNSFK3N5",
+          grade: "100%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Python for Data Science, AI & Development",
-          image: "/images/certificates/ibm.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
-        },
-        {
-          title: "Python Project for Data Science",
-          image: "/images/certificates/ibm.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          image: "/images/certificates/Python for Data Science AI & Development.jpg",
+          link: "https://coursera.org/verify/ELUQUXSJBG7L",
+          grade: "98.88%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Databases and SQL for Data Science with Python",
-          image: "/images/certificates/ibm.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          image: "/images/certificates/Databases and SQL for Data Science with Python.jpg",
+          link: "https://coursera.org/verify/5P8X864EXEJW",
+          grade: "98.95%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Data Analysis with Python",
-          image: "/images/certificates/ibm.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          image: "/images/certificates/Data Analysis with Python.jpg",
+          link: "https://coursera.org/verify/YRDS2RUCLAW4",
+          grade: "95.64%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
+        },
+        {
+          title: "Data Visualization with Python",
+          image: "/images/certificates/Data Visualization with Python.jpg",
+          link: "https://coursera.org/verify/2MGWAHFGY6F5",
+          grade: "100%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         },
         {
           title: "Machine Learning with Python",
-          image: "/images/certificates/ibm.jpg",
-          link: "https://coursera.org/verify/your-cert-id",
-          grade: "97.5% - 100%",
-          duration: "3-6 weeks",
-          date: "2023"
+          image: "/images/certificates/Machine Learning with Python.jpg",
+          link: "https://coursera.org/verify/9HLALGE75QZZ",
+          grade: "100%",
+          duration: "3-6 weeks"
+          // ,date: "2023"
         }
       ]
     },
@@ -164,21 +164,18 @@ const Certifications = () => {
         },
         {
           title: "Power Platform Fundamentals",
-          image: "/images/certificates/microsoft.jpg",
-          link: "https://learn.microsoft.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/Power Platform Fundamentals.jpg",
+          // ,date: "2023"
         },
         {
           title: "Data Science Certification",
-          image: "/images/certificates/microsoft.jpg",
-          link: "https://learn.microsoft.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/Data Science Certification.jpg",
+          // ,date: "2023"
         },
         {
           title: "JavaScript Certification",
-          image: "/images/certificates/microsoft.jpg",
-          link: "https://learn.microsoft.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/JavaScript Certification.jpg",
+          // ,date: "2023"
         }
       ]
     },
@@ -191,39 +188,33 @@ const Certifications = () => {
       certificates: [
         {
           title: "Python Course",
-          image: "/images/certificates/sololearn.jpg",
-          link: "https://sololearn.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/Python Course.jpg",
+          // ,date: "2023"
         },
         {
           title: "C Programming",
-          image: "/images/certificates/sololearn.jpg",
-          link: "https://sololearn.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/C Programming.jpg",
+          // ,date: "2023"
         },
         {
           title: "C++ Course",
-          image: "/images/certificates/sololearn.jpg",
-          link: "https://sololearn.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/C++ Course.jpg",
+          // ,date: "2023"
         },
         {
           title: "SQL",
-          image: "/images/certificates/sololearn.jpg",
-          link: "https://sololearn.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/SQL.jpg",
+          // ,date: "2023"
         },
         {
           title: "HTML",
-          image: "/images/certificates/sololearn.jpg",
-          link: "https://sololearn.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/HTML.jpg",
+          // ,date: "2023"
         },
         {
           title: "CSS",
-          image: "/images/certificates/sololearn.jpg",
-          link: "https://sololearn.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/CSS.jpg",
+          // ,date: "2023"
         }
       ]
     },
@@ -236,27 +227,23 @@ const Certifications = () => {
       certificates: [
         {
           title: "Machine Learning & Data Science with Python & R",
-          image: "/images/certificates/udemy.jpg",
-          link: "https://udemy.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/Machine Learning & Data Science with Python & R.jpg",
+          // ,date: "2023"
         },
         {
           title: "Python Best Parts",
-          image: "/images/certificates/udemy.jpg",
-          link: "https://udemy.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/Python Best Parts.jpg",
+          // ,date: "2023"
         },
         {
           title: "HTML & CSS Foundations",
-          image: "/images/certificates/udemy.jpg",
-          link: "https://udemy.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/HTML & CSS Foundations.jpg",
+          // ,date: "2023"
         },
         {
           title: "PHP Development",
-          image: "/images/certificates/udemy.jpg",
-          link: "https://udemy.com/verify/your-cert-id",
-          date: "2023"
+          image: "/images/certificates/PHP Development.jpg",
+          // ,date: "2023"
         }
       ]
     },
@@ -282,7 +269,28 @@ const Certifications = () => {
           date: "2024"
         }
       ]
-    }
+    },
+    // {
+    //   provider: "NPTEL",
+    //   icon: <SiReact />,
+    //   logo: "/images/logos/amazon.png",
+    //   certCount: "2 Certifications",
+    //   description: "NPTEL Online Certification",
+    //   certificates: [
+    //     {
+    //       title: "Problem Solving Through Programming in C",
+    //       image: "/images/certificates/Problem Solving Through Programming in C.jpg",
+    //       grade: "84%"
+    //       // ,date: "2024"
+    //     },
+    //     {
+    //       title: "Database Management System",
+    //       image: "/images/certificates/Database Management System.jpg",
+    //       grade: "89%" 
+    //       // ,date: "2024"
+    //     }
+    //   ]
+    // }
   ];
 
   return (
@@ -340,7 +348,7 @@ const Certifications = () => {
                       <h4>{cert.title}</h4>
                       {cert.grade && <p className="grade">Grade: {cert.grade}</p>}
                       {cert.duration && <p className="duration">Duration: {cert.duration}</p>}
-                      <p className="date">Completed: {cert.date}</p>
+                      {/* <p className="date">Completed: {cert.date}</p> */}
                     </div>
                   </div>
                 ))}
