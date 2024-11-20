@@ -204,3 +204,279 @@
   box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
   background: #2d2d2d;
 }
+
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.project-modal-content {
+  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+  padding: 2.5rem;
+  border-radius: 20px;
+  max-width: 1000px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  color: white;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(45deg, #64ffda, #007bff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.modal-image-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.modal-image-carousel img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.modal-main-content h3,
+.modal-sidebar h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #64ffda;
+}
+
+.modal-description {
+  line-height: 1.8;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+}
+
+.modal-tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin: 1rem 0;
+}
+
+.modal-tech-tags .tech-tag {
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.modal-links-section {
+  margin-top: 2rem;
+}
+
+.modal-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: rgba(100, 255, 218, 0.1);
+  color: #64ffda;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.modal-link:hover {
+  background: rgba(100, 255, 218, 0.2);
+  transform: translateX(5px);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .modal-content-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-title {
+    font-size: 2rem;
+  }
+  
+  .project-modal-content {
+    padding: 1.5rem;
+  }
+}
+
+/* Update the modal styles for light mode */
+.light-mode .project-modal-overlay {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+}
+
+.light-mode .project-modal-content {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  color: #333;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.light-mode .modal-title {
+  background: linear-gradient(45deg, #007bff, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.light-mode .modal-main-content h3,
+.light-mode .modal-sidebar h3 {
+  color: #007bff;
+}
+
+.light-mode .modal-description,
+.light-mode .modal-full-description p {
+  color: #444;
+}
+
+.light-mode .modal-tech-tags .tech-tag {
+  background: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.light-mode .modal-link {
+  background: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.light-mode .modal-link:hover {
+  background: rgba(0, 123, 255, 0.2);
+}
+
+.light-mode .modal-close-btn {
+  background: rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.light-mode .modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Keep section titles centered */
+.section-title {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  position: relative;
+  /* background: linear-gradient(45deg, #007bff, #00bfff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #007bff, #00bfff);
+  transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+  width: 150px;
+}
+
+/* Update modal image styles for better visibility in light mode */
+.light-mode .modal-image-carousel img {
+  border: 1px solid #e0e0e0;
+}
+
+/* Update scrollbar for modal in light mode */
+.light-mode .project-modal-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.light-mode .project-modal-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.light-mode .project-modal-content::-webkit-scrollbar-thumb {
+  background: #007bff;
+  border-radius: 4px;
+}
+
+.light-mode .project-modal-content::-webkit-scrollbar-thumb:hover {
+  background: #0056b3;
+}
+
+/* Update these color values in your existing CSS */
+
+.dark-mode .modal-main-content h3,
+.dark-mode .modal-sidebar h3 {
+  color: #007bff; /* Changed from #64ffda to blue */
+}
+
+.dark-mode .modal-tech-tags .tech-tag {
+  background: rgba(0, 123, 255, 0.1); /* Changed from #64ffda to blue */
+  color: #007bff;
+}
+
+.dark-mode .modal-link {
+  background: rgba(0, 123, 255, 0.1);
+  color: #007bff;
+}
+
+.dark-mode .modal-link:hover {
+  background: rgba(0, 123, 255, 0.2);
+}
+
+/* Update the gradient for modal title in dark mode */
+.dark-mode .modal-title {
+  background: linear-gradient(45deg, #007bff, #00bfff); /* Changed from green to blue gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

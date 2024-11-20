@@ -120,11 +120,12 @@ const Hero = () => {
             Hi, I'm <span className="highlight">Suraj Bitla</span>
           </h1>
           <h2 className="animate-slide-down-delay-1">
-            Full Stack Developer & ML Engineer
+            AI Engineer & Full Stack Developer
           </h2>
-          <p className="animate-slide-down-delay-2">
-            Specializing in Python, Java, ReactJS, and Machine Learning
+          <p>
+            Specializing in AI-Driven Solutions, Scalable Systems, and Web Development
           </p>
+          <p className="animate-slide-down-delay-2">Transforming ideas into high-performance, scalable solutions that make a difference.</p>
           <div className="hero-buttons animate-slide-up">
             <a href="#contact" className="btn primary">Contact Me</a>
             <a href="#projects" className="btn secondary">View Projects</a>
@@ -138,13 +139,13 @@ const Hero = () => {
           </div>
         </div>
         <div className="hero-social animate-fade-in-delay">
-          <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/SurajBitla" target="_blank" rel="noopener noreferrer">
             <FaGithub />
           </a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">
+          <a href="https://linkedin.com/in/suraj-bitla" target="_blank" rel="noopener noreferrer">
             <FaLinkedin />
           </a>
-          <a href="mailto:your.email@example.com">
+          <a href="mailto:surajbitla@gmail.com">
             <FaEnvelope />
           </a>
         </div>
