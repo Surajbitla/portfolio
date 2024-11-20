@@ -9,18 +9,18 @@ const Education = () => {
       degree: "Master of Science in Computer Science",
       university: "Rowan University",
       location: "Glassboro-New Jersey",
-      period: "2023",
+      period: "2023-2024",
       gpa: "GPA: 4/4",
       specialization: "Specialization: Data Mining, Web Development, Data Warehousing, Agile Software Development"
     },
     {
       icon: <FaGraduationCap />,
       degree: "Bachelor of Technology in Computer Science",
-      university: "Lovely Professional University",
-      location: "Punjab, India",
+      university: "Sreenidhi Institute of Science and Technology",
+      location: "Hyderabad, India",
       period: "2016-2020",
-      gpa: "GPA: 3.5/4",
-      specialization: "Specialization: Software Engineering, Database Management, Computer Networks"
+      gpa: "GPA: 9.35/10",
+      specialization: "Specialization: Software Engineering, Database Management, Computer Networks, Web Development"
     }
   ];
 

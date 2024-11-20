@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import ProfileModal from '../ProfileModal/ProfileModal';
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState('home');
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,13 +84,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <a 
-          href="#home" 
-          onClick={(e) => handleNavClick(e, 'home')}
-          className={activeSection === 'home' ? 'active' : ''}
-        >
-          My Portfolio
-        </a>
+        <img 
+          src="/images/pic.jpg" 
+          alt="Suraj" 
+          className="profile-pic"
+          onClick={() => setIsProfileModalOpen(true)}
+        />
       </div>
       <div className="navbar-menu">
         {navItems.map(([label, id]) => (
@@ -102,6 +103,11 @@ const Navbar = () => {
           </a>
         ))}
       </div>
+      
+      <ProfileModal 
+        isOpen={isProfileModalOpen} 
+        onClose={() => setIsProfileModalOpen(false)} 
+      />
     </nav>
   );
 };
