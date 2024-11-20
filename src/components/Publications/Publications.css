@@ -1,6 +1,6 @@
 .publications {
   padding: 80px 0;
-  background-color: #000000; /* Set publications section background to black */
+  background-color: #000000;
   min-height: 100vh;
 }
 
@@ -18,17 +18,37 @@
 }
 
 .publication-card {
-  background: #1a1a1a; /* Darken card background */
-  color: #ffffff; /* Ensure text is white */
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.publication-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(0, 210, 255, 0.2));
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.publication-card:hover::before {
+  opacity: 1;
 }
 
 .publication-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3); /* Increased blue light intensity */
+}
+
+.publication-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 .publication-icon {
@@ -39,8 +59,8 @@
 
 .publication-card h3 {
   font-size: 1.3rem;
-  color: #2d3436;
   margin-bottom: 1rem;
+  color: var(--text-primary);
 }
 
 .publication-conference {
@@ -50,26 +70,64 @@
 }
 
 .publication-description {
-  color: #b3b3b3; /* Lighter text for description */
   line-height: 1.6;
   margin-bottom: 1.5rem;
   font-size: 1rem;
+  color: var(--text-secondary);
 }
 
-.publication-links {
-  display: flex;
-  gap: 1rem;
-}
-
-.publication-links a {
+.view-publication-hint {
   color: #007bff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgba(0, 123, 255, 0.1);
+  border-radius: 8px;
 }
 
-.publication-links a:hover {
-  color: #0056b3;
+.publication-card:hover .view-publication-hint {
+  opacity: 1;
+}
+
+/* Light mode */
+.light-mode .publication-card {
+  background: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .publication-card:hover {
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
+  background: rgba(0, 123, 255, 0.02);
+}
+
+.light-mode .publication-card h3 {
+  color: #2d3436;
+}
+
+.light-mode .publication-description {
+  color: #636e72;
+}
+
+/* Dark mode */
+.dark-mode .publication-card {
+  background: #1a1a1a;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .publication-card:hover {
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+  background: #2d2d2d;
+}
+
+.dark-mode .publication-card h3 {
+  color: #ffffff;
+}
+
+.dark-mode .publication-description {
+  color: #b3b3b3;
 }
 
 @media (max-width: 768px) {
@@ -80,82 +138,4 @@
   .publication-card {
     padding: 1.5rem;
   }
-}
-
-.dark-mode .publication-card {
-  background: #1a1a1a;
-}
-
-.dark-mode .publication-card h3,
-.dark-mode .publication-conference,
-.dark-mode .publication-description {
-  color: #ffffff;
-}
-
-.publication-poster {
-  margin-top: 1.5rem;
-  position: relative;
-  cursor: pointer;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.poster-preview {
-  width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.poster-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 123, 255, 0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.poster-overlay span {
-  color: white;
-  font-weight: 500;
-  padding: 0.8rem 1.5rem;
-  border: 2px solid white;
-  border-radius: 25px;
-}
-
-.publication-poster:hover .poster-preview {
-  transform: scale(1.05);
-}
-
-.publication-poster:hover .poster-overlay {
-  opacity: 1;
-}
-
-.poster-modal {
-  width: 90vw;
-  height: 90vh;
-  background: white;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-/* Light mode styles */
-.light-mode .publication-poster {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Dark mode styles */
-.dark-mode .publication-poster {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.dark-mode .poster-modal {
-  background: #1a1a1a;
 }

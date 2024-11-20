@@ -31,13 +31,15 @@ const About = () => {
       <div className="about-container">
         <h2 className="section-title">About Me</h2>
         <div className="about-content">
-          <div className="about-text">
-            <p className="about-summary">
-            Pursuing a Master’s degree in Computer Science from Rowan University, I am an AI Engineer and Full Stack Developer with a passion for building innovative solutions. With a strong foundation in machine learning, web development, and cloud technologies, I have successfully designed and implemented scalable systems, edge computing frameworks, and advanced driver-assistance systems (ADAS). My expertise lies in creating high-performance applications that enhance user experience and operational efficiency.
-            </p>
-            <p className="about-description">
-            I bring hands-on experience from my roles at Creditsafe Technology and Accenture, where I collaborated with clients to solve complex challenges through agile methodologies. Committed to continuous learning, I have earned multiple certifications in data science, AI, and programming, fueling my drive for innovation and growth. As I anticipate my graduation in December 2024, I am eager to apply my skills to cutting-edge projects that make a meaningful impact.
-            </p>
+          <div className="about-card">
+            <div className="about-text">
+              <p className="about-summary">
+              Pursuing a Master’s degree in Computer Science from Rowan University, I am an AI Engineer and Full Stack Developer with a passion for building innovative solutions. With a strong foundation in machine learning, web development, and cloud technologies, I have successfully designed and implemented scalable systems, edge computing frameworks, and advanced driver-assistance systems (ADAS). My expertise lies in creating high-performance applications that enhance user experience and operational efficiency.
+              </p>
+              <p className="about-description">
+              I bring hands-on experience from my roles at Creditsafe Technology and Accenture, where I collaborated with clients to solve complex challenges through agile methodologies. Committed to continuous learning, I have earned multiple certifications in data science, AI, and programming, fueling my drive for innovation and growth. As I anticipate my graduation in December 2024, I am eager to apply my skills to cutting-edge projects that make a meaningful impact.
+              </p>
+            </div>
           </div>
 
           <div className="highlights-grid">

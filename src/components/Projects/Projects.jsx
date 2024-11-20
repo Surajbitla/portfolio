@@ -110,17 +110,17 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
-    {
-      title: "Project 1",
-      description: "Short description here...",
-      fullDescription: "Detailed description of the project...",
-      images: ["/path/to/image1.jpg", "/path/to/image2.jpg"],
-      pdfUrl: "/path/to/documentation.pdf",
-      links: {
-        "GitHub": "https://github.com/...",
-        "Live Demo": "https://..."
-      }
-    },
+    // {
+    //   title: "Project 1",
+    //   description: "Short description here...",
+    //   fullDescription: "Detailed description of the project...",
+    //   images: ["/path/to/image1.jpg", "/path/to/image2.jpg"],
+    //   pdfUrl: "/path/to/documentation.pdf",
+    //   links: {
+    //     "GitHub": "https://github.com/...",
+    //     "Live Demo": "https://..."
+    //   }
+    // },
     {
       title: "E-commerce Platform (ShopRight)",
       description: "Developed a dynamic e-commerce web application focused on enhancing user experience with robust search functionality and streamlined purchase processes. Implemented secure user authentication and authorization mechanisms. Followed agile methodologies for iterative development and continuous integration.",

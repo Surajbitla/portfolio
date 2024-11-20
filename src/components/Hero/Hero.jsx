@@ -126,8 +126,36 @@ const Hero = () => {
             Specializing in AI-Driven Solutions, Scalable Systems, and Web Development
           </p>
           <div className="hero-buttons animate-slide-up">
-            <a href="#contact" className="btn primary">Contact Me</a>
-            <a href="#projects" className="btn secondary">View Projects</a>
+            <a 
+              href="#contact" 
+              className="btn primary"
+              onClick={(e) => {
+                e.preventDefault();
+                const contactSection = document.getElementById('contact');
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                window.scrollTo({
+                  top: contactSection.offsetTop - navHeight,
+                  behavior: 'smooth'
+                });
+              }}
+            >
+              Contact Me
+            </a>
+            <a 
+              href="#projects" 
+              className="btn secondary"
+              onClick={(e) => {
+                e.preventDefault();
+                const projectsSection = document.getElementById('projects');
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                window.scrollTo({
+                  top: projectsSection.offsetTop - navHeight,
+                  behavior: 'smooth'
+                });
+              }}
+            >
+              View Projects
+            </a>
           </div>
           <div className="hero-badges animate-fade-in">
             <span className="badge">AWS</span>

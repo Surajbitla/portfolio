@@ -103,7 +103,30 @@
   border-radius: 20px;
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
-  cursor: default;
+  background: var(--card-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(0, 210, 255, 0.2));
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.hero-content:hover::before {
+  opacity: 1;
+}
+
+.hero-content > * {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content * {
@@ -251,7 +274,12 @@
 /* Light mode hero styles */
 .light-mode .hero-content {
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .hero-content:hover {
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .light-mode .hero h1,
@@ -267,7 +295,12 @@
 /* Dark mode hero styles */
 .dark-mode .hero-content {
   background: rgba(26, 26, 26, 0.9);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .hero-content:hover {
+  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
+  background: rgba(26, 26, 26, 0.95);
 }
 
 .dark-mode .hero h1,

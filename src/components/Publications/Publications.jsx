@@ -26,31 +26,19 @@ const Publications = () => {
         <h2 className="section-title">Publications</h2>
         <div className="publications-grid">
           {publications.map((pub, index) => (
-            <div className="publication-card" key={index}>
+            <div 
+              className="publication-card" 
+              key={index}
+              onClick={() => window.open(pub.poster, '_blank')}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="publication-icon">
                 <FaBook />
               </div>
               <h3>{pub.title}</h3>
               <p className="publication-conference">{pub.conference}</p>
               <p className="publication-description">{pub.description}</p>
-              {pub.poster && (
-                <div className="publication-poster">
-                  <a 
-                    href={process.env.PUBLIC_URL + pub.poster} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                  >
-                    <img 
-                      src={process.env.PUBLIC_URL + pub.posterPreview} 
-                      alt="Poster preview"
-                      className="poster-preview"
-                    />
-                    <div className="poster-overlay">
-                      <span>View Full Poster</span>
-                    </div>
-                  </a>
-                </div>
-              )}
+              <div className="view-publication-hint">Click to view publication</div>
             </div>
           ))}
         </div>

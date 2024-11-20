@@ -18,12 +18,14 @@ const Awards = () => {
         {
           course: "Problem Solving Through Programming in C",
           score: "84%",
-          rank: "Top 2%"
+          rank: "Top 2%",
+          image: "/images/certificates/Problem Solving Through Programming in C.jpg"
         },
         {
           course: "Database Management System",
           score: "89%",
-          rank: "Top 5%"
+          rank: "Top 5%",
+          image: "/images/certificates/Database Management System.jpg"
         }
       ]
     }
@@ -52,10 +54,16 @@ const Awards = () => {
               {award.achievements && (
                 <div className="achievements-list">
                   {award.achievements.map((achievement, achIndex) => (
-                    <div className="achievement-item" key={achIndex}>
+                    <div 
+                      className="achievement-item" 
+                      key={achIndex}
+                      onClick={() => window.open(achievement.image, '_blank')}
+                      style={{ cursor: 'pointer' }}
+                    >
                       <h4>{achievement.course}</h4>
                       <p>Score: {achievement.score}</p>
                       <p className="achievement-rank">Rank: {achievement.rank}</p>
+                      <div className="view-certificate-hint">Click to view certificate</div>
                     </div>
                   ))}
                 </div>
