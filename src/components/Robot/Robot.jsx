@@ -20,6 +20,7 @@ const Robot = () => {
   const [isListening, setIsListening] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
   const [hasNewMessage, setHasNewMessage] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -122,6 +123,16 @@ const Robot = () => {
     return responses.default;
   };
 
+  const scrollToBottom = () => {
+    const messagesDiv = document.querySelector('.chat-messages');
+    if (messagesDiv) {
+      messagesDiv.scrollTo({
+        top: messagesDiv.scrollHeight,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   const handleSendMessage = (e) => {
     e.preventDefault();
     if (!inputMessage.trim()) return;
@@ -130,6 +141,8 @@ const Robot = () => {
     setInputMessage('');
     setIsTyping(true);
     setHasNewMessage(true);
+    
+    setTimeout(scrollToBottom, 100);
     
     const response = getBotResponse(inputMessage);
     setTimeout(() => {
@@ -140,8 +153,13 @@ const Robot = () => {
       }]);
       setIsTyping(false);
       setTimeout(() => setHasNewMessage(false), 500);
+      setTimeout(scrollToBottom, 100);
     }, 1000);
   };
+
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
   const startVoiceRecognition = () => {
     if ('webkitSpeechRecognition' in window) {
@@ -167,6 +185,45 @@ const Robot = () => {
     "Show me your publications",
     "What certifications do you have?"
   ];
+
+  const handleMessagesScroll = (e) => {
+    const { scrollTop, scrollHeight, clientHeight } = e.target;
+    const scrolledFromBottom = scrollHeight - scrollTop - clientHeight;
+    setShowScrollButton(scrolledFromBottom > 10);
+  };
+
+  useEffect(() => {
+    const messagesDiv = document.querySelector('.chat-messages');
+    if (messagesDiv) {
+      const { scrollTop, scrollHeight, clientHeight } = messagesDiv;
+      const scrolledFromBottom = scrollHeight - scrollTop - clientHeight;
+      setShowScrollButton(scrolledFromBottom > 10);
+    }
+  }, [messages]);
+
+  useEffect(() => {
+    if (isChatOpen) {
+      setTimeout(scrollToBottom, 100);
+    }
+  }, [isChatOpen]);
+
+  const handleSuggestedQuestion = (question) => {
+    setMessages(prev => [...prev, { text: question, type: 'user' }]);
+    const response = getBotResponse(question);
+    setIsTyping(true);
+    setHasNewMessage(true);
+    
+    setTimeout(() => {
+      setMessages(prev => [...prev, { 
+        text: response.response, 
+        type: 'bot',
+        action: response.action 
+      }]);
+      setIsTyping(false);
+      setTimeout(() => setHasNewMessage(false), 500);
+      setTimeout(scrollToBottom, 100);
+    }, 1000);
+  };
 
   if (!isVisible) return null;
 
@@ -198,7 +255,10 @@ const Robot = () => {
               </button>
             </div>
           </div>
-          <div className="chat-messages">
+          <div 
+            className="chat-messages" 
+            onScroll={handleMessagesScroll}
+          >
             {messages.map((msg, index) => (
               <div key={index} className={`message ${msg.type}`}>
                 {msg.text.split('\n').map((line, i) => (
@@ -221,6 +281,14 @@ const Robot = () => {
                 <div className="typing-dot"></div>
               </div>
             )}
+            {showScrollButton && (
+              <button 
+                className="scroll-bottom-btn"
+                onClick={scrollToBottom}
+              >
+                <FaChevronDown />
+              </button>
+            )}
           </div>
           {isMaximized && (
             <div className="suggested-questions">
@@ -228,10 +296,7 @@ const Robot = () => {
                 <button
                   key={index}
                   className="suggested-question-btn"
-                  onClick={() => {
-                    setInputMessage(question);
-                    handleSendMessage({ preventDefault: () => {} });
-                  }}
+                  onClick={() => handleSuggestedQuestion(question)}
                 >
                   {question}
                 </button>
@@ -252,9 +317,12 @@ const Robot = () => {
             >
               {isListening ? <FaMicrophoneSlash /> : <FaMicrophone />}
             </button>
-            <button type="submit">
-              <span className="send-text">Send</span>
-              <span className="send-icon"><FaPaperPlane /></span>
+            <button type="submit" className="voice-btn">
+              {(!isMaximized) ? (
+                <FaPaperPlane />
+              ) : (
+                <span className="send-text">Send</span>
+              )}
             </button>
           </form>
         </div>
