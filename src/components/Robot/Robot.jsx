@@ -232,7 +232,7 @@ const Robot = () => {
       <div className="robot-greeting">
         <div className="greeting-bubble">Hi there! 👋</div>
         <img 
-          src="/images/astro-bot-slow.gif" 
+          src="./images/astro-bot-slow.gif" 
           alt="Friendly Robot" 
           className="robot-gif"
           onClick={() => setIsChatOpen(!isChatOpen)}

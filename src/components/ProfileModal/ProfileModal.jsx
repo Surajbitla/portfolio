@@ -45,7 +45,7 @@ const ProfileModal = ({ isOpen, onClose }) => {
         <div className="profile-header">
           <div className="profile-picture-container">
             <img 
-              src="/images/pic.jpg" 
+              src="./images/pic.jpg" 
               alt="Suraj" 
               className="profile-picture"
             />
