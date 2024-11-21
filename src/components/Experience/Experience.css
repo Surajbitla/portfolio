@@ -22,6 +22,10 @@
   color: #007bff;
 }
 
+.dark-mode .experience-content h4 {
+  color: #007bff;
+}
+
 .light-mode .experience-location,
 .light-mode .experience-period {
   color: #636e72;

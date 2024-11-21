@@ -36,10 +36,10 @@ const Education = () => {
               </div>
               <div className="education-content">
                 <h3>{edu.degree}</h3>
-                <p className="education-university">{edu.university}</p>
+                <h4 className="education-university">{edu.university}</h4>
                 <p className="education-location">{edu.location}</p>
                 <p className="education-period">{edu.period}</p>
-                <p className="education-gpa">{edu.gpa}</p>
+                <h4 className="education-gpa">{edu.gpa}</h4>
                 <p className="education-specialization">{edu.specialization}</p>
               </div>
             </div>
