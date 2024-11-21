@@ -101,16 +101,16 @@ const ProfileModal = ({ isOpen, onClose }) => {
             </div>
             <div className="info-item">
               <FaEnvelope />
-              <a href="mailto:your.email@example.com">your.email@example.com</a>
+              <a href="mailto:surajb.5639@gmail.com">surajb.5639@gmail.com</a>
             </div>
           </div>
 
           <div className="social-links">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://github.com/SurajBitla" target="_blank" rel="noopener noreferrer" className="social-link">
               <FaGithub />
               <span>GitHub</span>
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="social-link">
+            <a href="https://linkedin.com/in/suraj-bitla" target="_blank" rel="noopener noreferrer" className="social-link">
               <FaLinkedin />
               <span>LinkedIn</span>
             </a>

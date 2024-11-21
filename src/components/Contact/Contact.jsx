@@ -33,15 +33,15 @@ const Contact = () => {
             <p>Feel free to reach out for collaborations or just a friendly hello</p>
             
             <div className="contact-links">
-              <a href="mailto:your.email@example.com" className="contact-link">
+              <a href="mailto:surajb.5639@gmail.com" className="contact-link">
                 <FaEnvelope />
                 <span>Email Me</span>
               </a>
-              <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="contact-link">
+              <a href="https://linkedin.com/in/suraj-bitla" target="_blank" rel="noopener noreferrer" className="contact-link">
                 <FaLinkedin />
                 <span>LinkedIn</span>
               </a>
-              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="contact-link">
+              <a href="https://github.com/SurajBitla" target="_blank" rel="noopener noreferrer" className="contact-link">
                 <FaGithub />
                 <span>GitHub</span>
               </a>
@@ -57,7 +57,7 @@ const Contact = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="Suraj Bitla"
+                placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
                 required

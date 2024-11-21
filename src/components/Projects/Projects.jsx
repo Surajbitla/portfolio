@@ -7,11 +7,31 @@ const projectsData = [
   {
     id: 'ecommerce',
     title: 'E-commerce Platform (ShopRight)',
-    description: 'Developed a dynamic e-commerce web application focused on enhancing user experience with robust search functionality and streamlined purchase processes.',
+    description: 'Developed a dynamic e-commerce web application focused on enhancing user experience with robust search functionality and streamlined purchase processes. Implemented secure user authentication and authorization mechanisms, ensuring data protection and security. ',
     technologies: ["ReactJS", "Node.js", "AWS", "MySQL", "Git", "HTML5", "JavaScript", "DBMS"],
     github: "https://github.com/Surajbitla/shopright",
     link: "#",
-    screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png'],
+    screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png', 'screenshot4.png', 'screenshot5.png', 'screenshot6.png', 'screenshot7.png', 'screenshot8.png', 'screenshot9.png', 'screenshot10.png'],
+    documents: []
+  },
+  {
+    id: 'precision-agriculture',
+    title: 'Computation Offloading for Precision Agriculture',
+    description: 'Developed a cooperative inference framework to optimize computation between edge devices and servers for precision agriculture applications. Focused on reducing latency and power consumption while enhancing scalability for agricultural IoT systems. ',
+    technologies: ["Python", "PyTorch", "YOLO", "AlexNet", "ResNet", "Faster-RCNN", "Blosc2"],
+    github: "https://github.com/Surajbitla/racr_ai/tree/suraj_yolo",
+    link: "#",
+    screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png', 'screenshot4.png', 'screenshot5.png', 'screenshot6.png'],
+    documents: []
+  },
+  {
+    id: 'splittracr',
+    title: 'SplitTracr - An Experimental Test-bed for Cooperative Inference Using Split Computing',
+    description: 'Developed SplitTracr, a robust experimental framework designed to enable distributed AI experiments through split inference between server and host devices. The framework optimizes resource utilization and enhances edge computing capabilities, making it ideal for real-time AI applications. ',
+    technologies: ["Python", "PyTorch", "SSH", "CUDA", "Torchvision", "Ultralytics", "YOLO"],
+    github: "https://github.com/Surajbitla/tracr",
+    link: "#",
+    screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg'],
     documents: []
   },
   {
@@ -22,29 +42,33 @@ const projectsData = [
     links: {
       part1: "https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7526939016945756/1723055041762845/6396259126306231/latest.html",
       part2: "https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7526939016945756/1723055041763209/6396259126306231/latest.html"
-    }
+    },
+    screenshots: ['screenshot1.png', 'screenshot2.jpg', 'screenshot3.jpg', 'screenshot4.jpg']
   },
   {
     id: 'dc-travel',
     title: "DC Travel Guide",
     description: "Developed an innovative travel guide utilizing comprehensive crime data to enhance visitor safety. Created visualizations including crime heat maps and trends for major attractions. Provides recommendations on safe neighborhoods, hotels, and optimal visiting times.",
     technologies: ["Python", "Information Visualization", "Computer Vision", "Matplotlib", "Seaborn", "NumPy", "Pandas"],
-    link: "#"
+    link: "#",
+    screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg']
   },
   {
     id: 'enhanced-vision',
     title: "Enhanced Assisted Vision",
     description: "Python application with object detection and recognition using image processing and deep learning for visually challenged people. Integrated text-to-speech API for real-time audio feedback, providing distance information and enhanced user assistance.",
     technologies: ["Python", "TensorFlow", "Object Detection", "Image Processing", "Text-to-Speech API"],
-    link: "#"
+    link: "#",
+    screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg']
   },
   {
     id: 'integrated-cooling',
     title: "Integrated Cooling System",
     description: "Developed an innovative cooling system combining ceiling fan with custom-built air conditioner. Cool air is funneled through pipes connected to the fan, using an accelerator for enhanced airflow. Improves cooling performance while reducing energy consumption.",
     technologies: ["Mechanical Engineering", "Energy Efficiency", "Innovation"],
-    type: "Patent"
-  }
+    type: "Patent",
+    screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg']
+  }  
 ];
 
 const Projects = () => {

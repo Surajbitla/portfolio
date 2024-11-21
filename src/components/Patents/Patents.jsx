@@ -7,8 +7,8 @@ const Patents = () => {
     {
       title: "An integrated cooling system with Ceiling Fan and an Air Conditioning equipment contained therein to achieve optimal cooling and Comfort factor",
       description: "A Unitary air conditioning system combining a Ceiling fan and a Variable Refrigerant Volume (VRV) for proper distribution of cool air throughout all rooms.",
-      status: "Filed",
-      year: "2023"
+      // status: "Filed",
+      year: "2019"
     }
   ];
 
@@ -26,7 +26,7 @@ const Patents = () => {
                 <h3>{patent.title}</h3>
                 <p className="patent-description">{patent.description}</p>
                 <div className="patent-details">
-                  <span className="patent-status">Status: {patent.status}</span>
+                  {/* <span className="patent-status">Status: {patent.status}</span> */}
                   <span className="patent-year">Year: {patent.year}</span>
                 </div>
               </div>
