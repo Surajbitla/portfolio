@@ -8,41 +8,37 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Get all sections and navbar height for offset
-      const sections = document.querySelectorAll('section[id]');
-      const navHeight = document.querySelector('.navbar').offsetHeight;
-      const scrollPosition = window.scrollY + navHeight + 50;
-
-      // Find the current section
-      let current = '';
-      
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.offsetHeight;
-        const sectionId = section.getAttribute('id');
+      requestAnimationFrame(() => {
+        const sections = document.querySelectorAll('section[id]');
+        const navHeight = document.querySelector('.navbar').offsetHeight;
+        const scrollPosition = window.scrollY + navHeight + 50;
+        let current = '';
         
-        // Don't update active section if modal is open
-        const modalOverlay = document.querySelector('.modal-overlay');
-        if (!modalOverlay && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-          current = sectionId;
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          const sectionHeight = section.offsetHeight;
+          const sectionId = section.getAttribute('id');
+          
+          const modalOverlay = document.querySelector('.modal-overlay');
+          if (!modalOverlay && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            current = sectionId;
+          }
+        });
+
+        if (current !== '') {
+          setActiveSection(current);
         }
       });
-
-      if (current !== '') {
-        setActiveSection(current);
-      }
     };
 
     window.addEventListener('scroll', handleScroll);
     handleScroll();
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const handleNavClick = (e, sectionId) => {
     e.preventDefault();
     
-    // Close any open modal
     const modalOverlay = document.querySelector('.modal-overlay');
     if (modalOverlay) {
       const closeButton = modalOverlay.querySelector('.modal-close');
@@ -51,7 +47,6 @@ const Navbar = () => {
       }
     }
 
-    // After a small delay to allow modal to close
     setTimeout(() => {
       const section = document.getElementById(sectionId);
       const navHeight = document.querySelector('.navbar').offsetHeight;
@@ -66,7 +61,6 @@ const Navbar = () => {
     }, 100);
   };
 
-  // Navigation items array
   const navItems = [
     ['About', 'about'],
     ['Skills', 'skills'],
@@ -90,6 +84,10 @@ const Navbar = () => {
           className="profile-pic"
           onClick={() => setIsProfileModalOpen(true)}
         />
+        <div className="brand-info">
+          <span className="brand-title">My Portfolio</span>
+          <span className="brand-role">Graduate Research Assistant</span>
+        </div>
       </div>
       <div className="navbar-menu">
         {navItems.map(([label, id]) => (
@@ -113,3 +111,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

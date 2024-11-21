@@ -5,6 +5,7 @@ import {
   FaUserGraduate, FaChartLine, FaBrain, FaBolt, FaCloud, FaLayerGroup
 } from 'react-icons/fa';
 import './ProfileModal.css';
+import PropTypes from 'prop-types';
 
 const ProfileModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
@@ -119,6 +120,11 @@ const ProfileModal = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
+};
+
+ProfileModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired
 };
 
 export default ProfileModal; 

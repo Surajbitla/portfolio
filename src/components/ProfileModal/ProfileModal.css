@@ -81,7 +81,8 @@
 }
 
 .profile-picture:hover {
-  transform: scale(1.05) rotate(5deg);
+  border-color: #007bff;
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
 }
 
 .status-indicator {
