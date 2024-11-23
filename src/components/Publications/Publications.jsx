@@ -8,15 +8,15 @@ const Publications = () => {
       title: "Computation Offloading for Precision Agriculture using Cooperative Inference",
       conference: "IEEE International Conference on Fog and Edge Computing (ICFEC 2024)",
       description: "Presented a poster on leveraging cooperative inference frameworks to support edge devices with limited power and computational resources in precision agriculture.",
-      poster: "/posters/poster1.pdf",
-      posterPreview: "/posters/poster1-preview.jpg"
+      poster: "./posters/poster1.pdf",
+      posterPreview: "./posters/poster1-preview.jpg"
     },
     {
       title: "SplitTracer: A Cooperative Inference Evaluation Toolkit for Computation Offloading on the Edge",
       conference: "IEEE International Conference on Fog and Edge Computing (ICFEC 2024)",
       description: "Developed and presented an experimental test bed for evaluating the efficacy of computation offloading for cooperative inference between edge and fog devices.",
-      poster: "/posters/poster1.pdf",
-      posterPreview: "/posters/poster1-preview.jpg"
+      poster: "./posters/poster1.pdf",
+      posterPreview: "./posters/poster1-preview.jpg"
     }
   ];
 

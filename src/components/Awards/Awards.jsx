@@ -19,13 +19,13 @@ const Awards = () => {
           course: "Problem Solving Through Programming in C",
           score: "84%",
           rank: "Top 2%",
-          image: "/images/certificates/Problem Solving Through Programming in C.jpg"
+          image: "./images/certificates/Problem Solving Through Programming in C.jpg"
         },
         {
           course: "Database Management System",
           score: "89%",
           rank: "Top 5%",
-          image: "/images/certificates/Database Management System.jpg"
+          image: "./images/certificates/Database Management System.jpg"
         }
       ]
     }

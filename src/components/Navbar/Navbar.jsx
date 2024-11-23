@@ -79,7 +79,7 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-brand">
         <img 
-          src="/images/pic.jpg" 
+          src="./images/pic.jpg" 
           alt="Suraj" 
           className="profile-pic"
           onClick={() => setIsProfileModalOpen(true)}
