@@ -108,7 +108,7 @@ const Robot = () => {
         }
       },
       default: {
-        response: "I can tell you about Suraj's projects, education, skills, experience, publications, or certifications. What would you like to know?",
+        response: "Hi!,I can tell you about Suraj's projects, education, skills, experience, publications, or certifications. What would you like to know?",
         action: null
       }
     };
@@ -180,10 +180,10 @@ const Robot = () => {
   };
 
   const suggestedQuestions = [
-    "Tell me about your projects",
-    "What are your skills?",
-    "Show me your publications",
-    "What certifications do you have?"
+    "Tell me about suraj projects",
+    "What are suraj skills?",
+    "Show me suraj publications",
+    "What certifications do suraj have?"
   ];
 
   const handleMessagesScroll = (e) => {
@@ -232,7 +232,7 @@ const Robot = () => {
       <div className="robot-greeting">
         <div className="greeting-bubble">Hi there! 👋</div>
         <img 
-          src="/images/astro-bot-slow.gif" 
+          src="./images/astro-bot-slow.gif" 
           alt="Friendly Robot" 
           className="robot-gif"
           onClick={() => setIsChatOpen(!isChatOpen)}
