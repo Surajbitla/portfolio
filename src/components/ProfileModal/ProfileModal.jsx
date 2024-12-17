@@ -51,7 +51,7 @@ const ProfileModal = ({ isOpen, onClose }) => {
             />
             <div className="status-indicator">Available for Opportunities</div>
           </div>
-          <h2>Suraj Kumar</h2>
+          <h2>Suraj Bitla</h2>
           <div className="title-container">
             <span className="profile-title">Full Stack Developer</span>
             <span className="title-separator">|</span>

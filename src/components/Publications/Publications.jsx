@@ -15,8 +15,8 @@ const Publications = () => {
       title: "SplitTracer: A Cooperative Inference Evaluation Toolkit for Computation Offloading on the Edge",
       conference: "IEEE International Conference on Fog and Edge Computing (ICFEC 2024)",
       description: "Developed and presented an experimental test bed for evaluating the efficacy of computation offloading for cooperative inference between edge and fog devices.",
-      poster: "/posters/poster1.pdf",
-      posterPreview: "/posters/poster1-preview.jpg"
+      poster: "/posters/poster2.pdf",
+      posterPreview: "/posters/poster2-preview.jpg"
     }
   ];
 
