@@ -5,12 +5,22 @@ import ProjectModal from './ProjectModal';
 
 const projectsData = [
   {
+    id: 'forgetting-llm',
+    title: 'Forgetting LLM System',
+    description: 'Developed a framework for implementing machine unlearning in language models to ensure privacy compliance by selectively removing sensitive or outdated information. Built a web-based interface for user interaction, dynamic configuration, and real-time debugging. Designed configurable forgetting mechanisms, enabling efficient and flexible handling of sensitive data without retraining the model.',
+    technologies: ["Python", "Flask", "BERT", "Ollama LLM", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/Surajbitla/llm",
+    // link: "#",
+    screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png', 'screenshot4.png', 'screenshot5.png', 'screenshot6.png', 'screenshot7.png', 'screenshot8.png'],
+    documents: []
+  },
+  {
     id: 'ecommerce',
     title: 'E-commerce Platform (ShopRight)',
     description: 'Developed a dynamic e-commerce web application focused on enhancing user experience with robust search functionality and streamlined purchase processes. Implemented secure user authentication and authorization mechanisms, ensuring data protection and security. ',
     technologies: ["ReactJS", "Node.js", "AWS", "MySQL", "Git", "HTML5", "JavaScript", "DBMS"],
     github: "https://github.com/Surajbitla/shopright",
-    link: "#",
+    // link: "#",
     screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png', 'screenshot4.png', 'screenshot5.png', 'screenshot6.png', 'screenshot7.png', 'screenshot8.png', 'screenshot9.png', 'screenshot10.png'],
     documents: []
   },
@@ -20,7 +30,7 @@ const projectsData = [
     description: 'Developed a cooperative inference framework to optimize computation between edge devices and servers for precision agriculture applications. Focused on reducing latency and power consumption while enhancing scalability for agricultural IoT systems. ',
     technologies: ["Python", "PyTorch", "YOLO", "AlexNet", "ResNet", "Faster-RCNN", "Blosc2"],
     github: "https://github.com/Surajbitla/racr_ai/tree/suraj_yolo",
-    link: "#",
+    // link: "#",
     screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png', 'screenshot4.png', 'screenshot5.png', 'screenshot6.png'],
     documents: []
   },
@@ -30,7 +40,7 @@ const projectsData = [
     description: 'Developed SplitTracr, a robust experimental framework designed to enable distributed AI experiments through split inference between server and host devices. The framework optimizes resource utilization and enhances edge computing capabilities, making it ideal for real-time AI applications. ',
     technologies: ["Python", "PyTorch", "SSH", "CUDA", "Torchvision", "Ultralytics", "YOLO"],
     github: "https://github.com/Surajbitla/tracr",
-    link: "#",
+    // link: "#",
     screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg'],
     documents: []
   },
@@ -50,7 +60,7 @@ const projectsData = [
     title: "DC Travel Guide",
     description: "Developed an innovative travel guide utilizing comprehensive crime data to enhance visitor safety. Created visualizations including crime heat maps and trends for major attractions. Provides recommendations on safe neighborhoods, hotels, and optimal visiting times.",
     technologies: ["Python", "Information Visualization", "Computer Vision", "Matplotlib", "Seaborn", "NumPy", "Pandas"],
-    link: "#",
+    // link: "#",
     screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg']
   },
   {
@@ -58,7 +68,7 @@ const projectsData = [
     title: "Enhanced Assisted Vision",
     description: "Python application with object detection and recognition using image processing and deep learning for visually challenged people. Integrated text-to-speech API for real-time audio feedback, providing distance information and enhanced user assistance.",
     technologies: ["Python", "TensorFlow", "Object Detection", "Image Processing", "Text-to-Speech API"],
-    link: "#",
+    // link: "#",
     screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg']
   },
   {
