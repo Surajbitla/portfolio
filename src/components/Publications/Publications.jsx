@@ -17,6 +17,13 @@ const Publications = () => {
       description: "Developed and presented an experimental test bed for evaluating the efficacy of computation offloading for cooperative inference between edge and fog devices.",
       poster: "./posters/poster2.pdf",
       posterPreview: "./posters/poster2-preview.jpg"
+    },
+    {
+      title: "SplitTracr: A Flexible Performance Evaluation Tool for Cooperative Inference and Split Computing",
+      conference: "International Conference on Electronics Packaging (ICEP)",
+      description: "Developed and presented SplitTracr, a tool for evaluating split DNN performance with dynamic layer-wise splitting, edge device configuration, and live inference logging.",
+      poster: "./posters/poster3.pdf",
+      posterPreview: "./posters/poster2-preview.jpg"
     }
   ];
 
