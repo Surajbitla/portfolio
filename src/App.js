@@ -16,29 +16,36 @@ import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 import Loading from './components/Loading/Loading';
-import { FaMoon, FaSun } from 'react-icons/fa';
 import Robot from './components/Robot/Robot';
+import CustomCursor from './components/CustomCursor/CustomCursor';
+
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     // Simulate loading time
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      setDarkMode(true);
-    }
   }, []);
 
-  const toggleDarkMode = () => {
+  useEffect(() => {
+    // Sync body background color with theme
+    if (darkMode) {
+      document.body.style.backgroundColor = '#0a0a0b';
+      document.body.classList.remove('light-mode');
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.style.backgroundColor = '#f9fafb';
+      document.body.classList.remove('dark-mode');
+      document.body.classList.add('light-mode');
+    }
+  }, [darkMode]);
+
+  const toggleTheme = () => {
     setDarkMode(!darkMode);
-    localStorage.setItem('theme', !darkMode ? 'dark' : 'light');
   };
 
   if (loading) {
@@ -47,10 +54,7 @@ function App() {
 
   return (
     <div className={`App ${darkMode ? 'dark-mode' : 'light-mode'}`}>
-      <button className="theme-toggle" onClick={toggleDarkMode}>
-        {darkMode ? <FaSun /> : <FaMoon />}
-      </button>
-      <Navbar />
+      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
       <Hero />
       <About />
       <Skills />
@@ -65,6 +69,7 @@ function App() {
       <Contact />
       <Footer />
       <ScrollToTop />
+      <CustomCursor />
       <Robot />
     </div>
   );

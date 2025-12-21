@@ -26,12 +26,12 @@ const Contact = () => {
     <section className="contact" id="contact">
       <div className="contact-container">
         <h2 className="section-title">Get In Touch</h2>
-        
+
         <div className="contact-content">
           <div className="contact-info">
             <h3>Let's Connect</h3>
             <p>Feel free to reach out for collaborations or just a friendly hello</p>
-            
+
             <div className="contact-links">
               <a href="mailto:surajb.5639@gmail.com" className="contact-link">
                 <FaEnvelope />
@@ -52,7 +52,7 @@ const Contact = () => {
             </div>
           </div>
 
-          <form className="contact-form" onSubmit={handleSubmit}>
+          {/* <form className="contact-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <input
                 type="text"
@@ -83,7 +83,7 @@ const Contact = () => {
               ></textarea>
             </div>
             <button type="submit" className="submit-btn">Send Message</button>
-          </form>
+          </form> */}
         </div>
       </div>
     </section>

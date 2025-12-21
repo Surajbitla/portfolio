@@ -2,28 +2,69 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
+  height: var(--nav-height);
+  background: rgba(10, 10, 11, 0.7);
+  /* translucent var(--bg-primary) */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
   transition: all 0.3s ease;
-  height: 80px;
+}
+
+.light-mode .navbar {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+  backdrop-filter: blur(15px);
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 10px;
-  border-radius: 30px;
-  transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
+  cursor: pointer;
 }
 
-.navbar-brand a {
-  text-decoration: none;
-  transition: color 0.3s ease;
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid var(--glass-border);
+  transition: all 0.3s ease;
+  object-fit: cover;
+}
+
+.profile-pic:hover {
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 10px var(--accent-blue-glow);
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.brand-role {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+}
+
+/* Menu */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .navbar-menu {
@@ -32,22 +73,47 @@
   align-items: center;
 }
 
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--glass-border);
+}
+
+.theme-toggle-btn:hover {
+  color: var(--accent-blue);
+  background: rgba(255, 255, 255, 0.05);
+}
+
 .navbar-menu a {
   position: relative;
-  text-decoration: none;
+  font-size: 0.95rem;
   font-weight: 500;
+  color: var(--text-secondary);
   transition: color 0.3s ease;
-  padding: 0.5rem 0;
+}
+
+.navbar-menu a:hover,
+.navbar-menu a.active {
+  color: var(--accent-blue);
 }
 
 .navbar-menu a::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -4px;
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #007bff;
+  background: var(--accent-gradient);
   transition: width 0.3s ease;
 }
 
@@ -56,171 +122,74 @@
   width: 100%;
 }
 
-.light-mode .navbar {
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.light-mode .navbar-brand a {
-  color: #2d3436;
-}
-
-.light-mode .navbar-menu a {
-  color: #2d3436;
-}
-
-.light-mode .navbar-menu a:hover,
-.light-mode .navbar-menu a.active {
-  color: #007bff;
-}
-
-.dark-mode .navbar {
-  background-color: rgba(26, 26, 26, 0.95);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.dark-mode .navbar-brand a {
-  color: #ffffff;
-}
-
-.dark-mode .navbar-menu a {
-  color: #ffffff;
-}
-
-.dark-mode .navbar-menu a:hover,
-.dark-mode .navbar-menu a.active {
-  color: #007bff;
-}
-
+/* Mobile Toggle */
 .navbar-burger {
   display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.5rem;
+  /* JS needs to toggle this */
 }
 
+/* Responsive */
 @media (max-width: 1024px) {
   .navbar-menu {
     gap: 1.5rem;
-  }
-  .navbar-menu a {
-    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 768px) {
   .navbar {
-    padding: 1rem;
+    padding: 0 1.5rem;
   }
-  .navbar-burger {
-    display: block;
-  }
-  .navbar-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    padding: 1rem;
-    gap: 1rem;
-  }
-  .light-mode .navbar-menu {
-    background-color: rgba(255, 255, 255, 0.95);
-  }
-  .dark-mode .navbar-menu {
-    background-color: rgba(26, 26, 26, 0.95);
-  }
-  .navbar-menu.active {
-    display: flex;
-  }
-  .navbar-menu a::after {
-    bottom: -5px;
-  }
-}
 
-section {
-  scroll-margin-top: 80px;
-  min-height: calc(100vh - 80px);
-  position: relative;
-}
-
-.profile-pic {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-  object-fit: cover;
-}
-
-.profile-pic:hover {
-  transform: scale(1.05);
-  border-color: #007bff;
-}
-
-.brand-info {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.brand-title {
-  font-size: 1.1rem;
-  font-weight: 600;
-  background: linear-gradient(135deg, #007bff, #00bfff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin: 0;
-}
-
-.brand-role {
-  font-size: 0.85rem;
-  opacity: 0.7;
-  margin: 0;
-  white-space: nowrap;
-}
-
-.light-mode .navbar-brand {
-  background: rgba(0, 123, 255, 0.05);
-}
-
-.light-mode .brand-role {
-  color: #666;
-}
-
-.dark-mode .navbar-brand {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.dark-mode .brand-role {
-  color: #ccc;
-}
-
-.navbar-brand:hover {
-  background: rgba(0, 123, 255, 0.1);
-  transform: translateY(-1px);
-}
-
-.profile-pic:hover {
-  border-color: #007bff;
-  transform: scale(1.05);
-}
-
-@media (max-width: 768px) {
-  .navbar-brand {
-    gap: 10px;
-  }
-  .profile-pic {
-    width: 40px;
-    height: 40px;
-  }
   .brand-info {
     display: none;
+    /* Save space on mobile */
+  }
+
+  /* Hamburger Icon (assuming pure CSS or rendered by React? 
+     React usually renders a button, let's assume we need to style a button) 
+     Actually, looking at previous Navbar.css, it was just .navbar-burger.
+     I'll style it assuming it's a button.
+  */
+
+  .navbar-burger {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  .navbar-menu {
+    position: absolute;
+    top: var(--nav-height);
+    left: 0;
+    width: 100%;
+    background: var(--bg-secondary);
+    flex-direction: column;
+    padding: 2rem;
+    border-bottom: 1px solid var(--glass-border);
+    transform: translateY(-150%);
+    transition: transform 0.3s ease-in-out;
+    opacity: 0;
+  }
+
+  .navbar-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    display: flex;
+    /* Override previous display:none if needed, but flex-direction handles it */
+  }
+
+  .navbar-menu a {
+    font-size: 1.2rem;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .navbar-menu a:last-child {
+    border-bottom: none;
   }
 }
-
-

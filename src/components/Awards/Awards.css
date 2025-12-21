@@ -1,6 +1,6 @@
 .awards {
   padding: 80px 0;
-  background-color: #000000;
+  background-color: var(--bg-primary);
   min-height: 50vh;
 }
 
@@ -47,7 +47,7 @@
   transform: translateY(-5px);
 }
 
-.award-card > * {
+.award-card>* {
   position: relative;
   z-index: 1;
 }

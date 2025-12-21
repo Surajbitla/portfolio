@@ -1,96 +1,158 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { FaGraduationCap, FaBriefcase, FaCode } from 'react-icons/fa';
 import './Experience.css';
-import { FaCode, FaLaptopCode, FaGraduationCap } from 'react-icons/fa';
+
+const ExperienceCard = ({ exp, index }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["0 1", "1.2 1"]
+  });
+
+  const xContent = index % 2 === 0 ? -50 : 50;
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}
+      initial={{ opacity: 0, x: xContent }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
+    >
+      <div className="timeline-content glass-card">
+        <div className="date-badge">{exp.period}</div>
+        <div className="role-header">
+          <div className="icon-box">
+            {exp.icon}
+          </div>
+          <div>
+            <h3>{exp.title}</h3>
+            <h4>{exp.company}</h4>
+          </div>
+        </div>
+
+        <p className="location">{exp.location}</p>
+
+        <ul className="responsibilities">
+          {exp.responsibilities.map((resp, i) => (
+            <li key={i}>{resp}</li>
+          ))}
+        </ul>
+
+        <div className="tech-stack">
+          {exp.technologies.slice(0, 8).map((tech, i) => (
+            <span key={i} className="tech-pill">{tech}</span>
+          ))}
+          {exp.technologies.length > 8 && (
+            <span className="tech-pill more">+{exp.technologies.length - 8}</span>
+          )}
+        </div>
+      </div>
+      <div className="timeline-dot"></div>
+    </motion.div>
+  );
+};
 
 const Experience = () => {
   const experiences = [
     {
-      icon: <FaGraduationCap />,
+      icon: <FaCode />,
       title: "Software Engineer",
-      company: "SmartTech ProServe",
-      location: "Glassboro, NJ",
-      period: "February 2025 – Present",
+      company: "Kruse Construction Co. Inc.",
+      location: "New Jersey, USA",
+      period: "Feb 2025 – Present",
       responsibilities: [
-        "Spearheading the end-to-end development of a cutting-edge SaaS platform that leverages the latest LLM (Large Language Model) technologies to enhance customer experiences and streamline tasks.",
-        "Managing the entire project lifecycle, from architecture design to deployment, ensuring scalability, security, and performance.",
-        "Leading a team of developers, setting technical direction, and implementing best practices for efficient software development.",
-        "Driving innovation by integrating AI-powered solutions to automate workflows and optimize user interactions."
+        "Designed and engineered Trakvu, a full AI-powered SaaS platform comparison, contractor evaluation, and risk analysis using React 19, TypeScript, Node.js, and MySQL.",
+        "Built intelligent document-processing features using LangChain, FAISS, and sentence-transformers for semantic proposal comparison and risk tagging.",
+        "Integrated multiple LLMs (GPT-4, Gemini, Llama/Ollama) with a custom multi-model fallback system for reliable inference.",
+        "Architected a secure cloud environment with Nginx, PM2, SSL, DigitalOcean Spaces, and hardened Ubuntu configurations.",
+        "Implemented Stripe subscription billing and automated onboarding flows with SendGrid.",
+        "Led and mentored a 3-member engineering team, improving internal workflows and delivery standards."
       ],
-      technologies: ["ReactJS", "Python", "ExpressJS", "MySQL", "DigitalOcean", "Ollama", "OpenAI", "LLM", "LangChain", "RAG Architecture", "Node.js", "REST APIs", "Git", "HTML", "CSS", "JavaScript"]
-
+      technologies: ["React 19", "TypeScript", "Node.js", "MySQL", "LangChain", "GPT-4", "DigitalOcean", "Nginx", "Stripe"]
     },
     {
       icon: <FaGraduationCap />,
       title: "Graduate Research Assistant",
       company: "Rowan University",
-      location: "Glassboro, NJ",
-      period: "June 2023 – December 2024",
+      location: "New Jersey, USA",
+      period: "Jun 2023 – Dec 2024",
       responsibilities: [
-        "Worked on Cooperative Inference for Advanced Driver-Assistance Systems within Vehicular Edge Networks",
-        "Utilized Robot Operating System on Jetson TX2 to optimize neural network models (AlexNet, ResNet, R-CNN, YOLO) for image classification",
-        "Worked on optimizing layer positioning to enhance efficiency and accuracy in edge computing for vehicular applications"
+        "Conducted research in edge AI, cooperative inference, and agricultural robotics on low-power IoT devices.",
+        "Built and evaluated CV models (classification, detection, segmentation) using PyTorch and TensorFlow for precision agriculture.",
+        "Designed split-inference pipelines that cut latency by 40% and energy by 35%.",
+        "Developed ROS modules for NVIDIA Jetson TX2/Orin for real-time sensing and inference.",
+        "Published peer-reviewed work at IEEE ICFEC 2024 and ICEP 2025."
       ],
-      technologies: ["Python", "ROS", "Jetson TX2", "YOLO", "ResNet", "AlexNet", "R-CNN", "Edge Computing", "Deep Learning", "Neural Networks"]
+      technologies: ["PyTorch", "TensorFlow", "ROS", "NVIDIA Jetson", "Edge AI", "Computer Vision", "Python"]
+    },
+    {
+      icon: <FaBriefcase />,
+      title: "Full Stack Engineer",
+      company: "Creditsafe",
+      location: "Hyderabad, India",
+      period: "Jul 2022 – Dec 2022",
+      responsibilities: [
+        "Built enterprise analytics dashboards using ReactJS, ExpressJS, Python, and Oracle DB.",
+        "Implemented dynamic UI rendering, improving page performance by 40%.",
+        "Automated recurring ETL processes using Python scripts, reducing manual workload by 50%.",
+        "Tuned database performance across Oracle and PostgreSQL through indexing and query optimization.",
+        "Used AWS and Azure services for hosting, monitoring, and scaling microservices."
+      ],
+      technologies: ["ReactJS", "ExpressJS", "Python", "Oracle DB", "AWS", "Azure", "ETL", "PostgreSQL"]
+    },
+    {
+      icon: <FaBriefcase />,
+      title: "Application Development Associate",
+      company: "Accenture",
+      location: "Hyderabad, India",
+      period: "Oct 2020 – Jul 2022",
+      responsibilities: [
+        "Modernized legacy enterprise applications by migrating front-end modules from ASP.NET to React.js.",
+        "Developed reusable UI components and integrated APIs for multi-client enterprise systems.",
+        "Improved CI/CD reliability by enhancing Azure DevOps pipelines and automating builds.",
+        "Delivered features across 10+ sprints and mentored junior associates on React workflows."
+      ],
+      technologies: ["React.js", "ASP.NET", "Azure DevOps", "SQL Server", "CI/CD", "JavaScript"]
     },
     {
       icon: <FaCode />,
-      title: "Full Stack Engineer",
-      company: "Creditsafe Technology Private Limited",
-      location: "Remote",
-      period: "July 2022 – December 2022",
+      title: "Full Stack Developer",
+      company: "Cipla",
+      location: "Hyderabad, India",
+      period: "Oct 2019 – Oct 2020",
       responsibilities: [
-        "Worked as a full stack developer on the development of the industry platform for creditsafe",
-        "Collaborated with clients to understand and meet their requirements",
-        "Developed and maintained scalable web applications"
+        "Developed enterprise applications using Java, Spring Boot, and microservices for manufacturing operations.",
+        "Created secure backend APIs integrated with ERP/MIS systems for real-time tracking.",
+        "Built dashboards using React.js to visualize plant metrics and production KPIs.",
+        "Managed deployments using Jenkins and Docker on AWS EC2/RDS."
       ],
-      technologies: ["Python", "ASP.NET", "AWS", "Azure", "Oracle", "JavaScript", "ReactJS", "Node.js", "ExpressJS", "HTML", "CSS", "MySQL", "REST APIs", "Git", "Full Stack Development", "Agile Methodology"]
-    },
-    {
-      icon: <FaLaptopCode />,
-      title: "Application Development Associate",
-      company: "Accenture",
-      location: "Remote",
-      period: "October 2020 – July 2022",
-      responsibilities: [
-        "Developed user interfaces for multiple clients, focusing on user story implementation",
-        "Proactively resolved bugs and delivered optimal solutions",
-        "Facilitated knowledge transfer sessions for new team members",
-        "Recognized for outstanding contributions and commitment to excellence"
-      ],
-      technologies: ["Python", "ReactJS", "ASP.NET", "JavaScript", "HTML5", "CSS3", "MySQL", "UI/UX", "Bug Tracking", "Agile Methodology", "Team Collaboration", "Responsive Design"]
+      technologies: ["Java", "Spring Boot", "Microservices", "React.js", "AWS", "Docker", "Jenkins", "PostgreSQL"]
     }
   ];
 
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0, 1, 1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.9, 1], [0.8, 1, 1, 0.8]);
+
   return (
-    <section className="experience" id="experience">
-      <div className="experience-container">
-        <h2 className="section-title">Experience</h2>
-        <div className="experience-timeline">
+    <section className="experience-section" id="experience" ref={targetRef}>
+      <motion.div style={{ opacity, scale }} className="container">
+        <h2 className="section-title">Professional Journey</h2>
+        <div className="timeline">
+          <div className="timeline-line"></div>
           {experiences.map((exp, index) => (
-            <div className="experience-card" key={index}>
-              <div className="experience-icon">
-                {exp.icon}
-              </div>
-              <div className="experience-content">
-                <h3>{exp.title}</h3>
-                <h4>{exp.company}</h4>
-                <p className="experience-location">{exp.location}</p>
-                <p className="experience-period">{exp.period}</p>
-                <ul className="experience-responsibilities">
-                  {exp.responsibilities.map((resp, respIndex) => (
-                    <li key={respIndex}>{resp}</li>
-                  ))}
-                </ul>
-                <div className="experience-tech">
-                  {exp.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="tech-tag">{tech}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ExperienceCard key={index} exp={exp} index={index} />
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

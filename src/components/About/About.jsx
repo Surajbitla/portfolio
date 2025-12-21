@@ -34,10 +34,10 @@ const About = () => {
           <div className="about-card">
             <div className="about-text">
               <p className="about-summary">
-              Pursuing a Master’s degree in Computer Science from Rowan University, I am an AI Engineer and Full Stack Developer with a passion for building innovative solutions. With a strong foundation in machine learning, web development, and cloud technologies, I have successfully designed and implemented scalable systems, edge computing frameworks, and advanced driver-assistance systems (ADAS). My expertise lies in creating high-performance applications that enhance user experience and operational efficiency.
+                Software Engineer with 5+ years of experience in full-stack development, backend engineering, AI integration, and cloud-based deployment. Skilled in building scalable, production-ready systems using React 19, Node.js, Express.js, and MySQL, with a strong focus on performance and maintainability.
               </p>
               <p className="about-description">
-              I bring hands-on experience from my roles at Creditsafe Technology and Accenture, where I collaborated with clients to solve complex challenges through agile methodologies. Committed to continuous learning, I have earned multiple certifications in data science, AI, and programming, fueling my drive for innovation and growth. As I anticipate my graduation in December 2024, I am eager to apply my skills to cutting-edge projects that make a meaningful impact.
+                Experienced in integrating LLM-driven features using LangChain, GPT-4, and RAG pipelines for intelligent decision support. My background spans edge AI optimization on Jetson devices, cloud infrastructure on AWS/DigitalOcean, and secure API design. I thrive in leading engineering teams, delivering measurable improvements in reliability and user experience.
               </p>
             </div>
           </div>
@@ -56,7 +56,7 @@ const About = () => {
 
           <div className="about-stats">
             <div className="stat-item">
-              <span className="stat-number">3+</span>
+              <span className="stat-number">5+</span>
               <span className="stat-label">Years Experience</span>
             </div>
             <div className="stat-item">

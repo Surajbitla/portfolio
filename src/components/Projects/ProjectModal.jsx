@@ -106,7 +106,7 @@ const ProjectModal = ({ project, onClose }) => {
 
     <AnimatePresence>
 
-      <motion.div 
+      <motion.div
 
         className="project-modal-overlay"
 
@@ -120,7 +120,7 @@ const ProjectModal = ({ project, onClose }) => {
 
       >
 
-        <motion.div 
+        <motion.div
 
           className="project-modal"
 
@@ -148,7 +148,7 @@ const ProjectModal = ({ project, onClose }) => {
 
               <>
 
-                <motion.img 
+                <motion.img
 
                   key={currentImageIndex}
 
@@ -188,7 +188,7 @@ const ProjectModal = ({ project, onClose }) => {
 
                       </button>
 
-                      <button 
+                      <button
 
                         className={`play-pause-btn ${!isAutoPlaying ? 'paused' : ''}`}
 
@@ -214,9 +214,9 @@ const ProjectModal = ({ project, onClose }) => {
 
                       {screenshots.map((_, index) => (
 
-                        <motion.span 
+                        <motion.span
 
-                          key={index} 
+                          key={index}
 
                           className={`dot ${index === currentImageIndex ? 'active' : ''}`}
 
@@ -247,26 +247,29 @@ const ProjectModal = ({ project, onClose }) => {
                   </>
 
                 )}
-
               </>
-
             ) : (
-
-              <div className="no-screenshots">
-
-                No screenshots available
-
+              <div className="project-cover-art">
+                <div className="cover-art-bg"></div>
+                <motion.div
+                  className="cover-art-content"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.2, type: "spring" }}
+                >
+                  <div className="cover-icon-wrapper">
+                    <FaExternalLinkAlt className="cover-icon" />
+                  </div>
+                  <h1>{project.title}</h1>
+                  <span className="cover-subtitle">Project Showcase</span>
+                </motion.div>
               </div>
-
             )}
-
           </div>
-
-
 
           <div className="project-details">
 
-            <motion.h2 
+            <motion.h2
 
               initial={{ y: 20, opacity: 0 }}
 
@@ -326,7 +329,7 @@ const ProjectModal = ({ project, onClose }) => {
 
                 {project.technologies.map((tech, index) => (
 
-                  <motion.span 
+                  <motion.span
 
                     key={index}
 
@@ -349,6 +352,46 @@ const ProjectModal = ({ project, onClose }) => {
               </div>
 
             </div>
+
+
+
+            {project.features && project.features.length > 0 && (
+
+              <div className="project-features">
+
+                <h3>Key Features</h3>
+
+                <div className="features-grid">
+
+                  {project.features.map((feature, index) => (
+
+                    <motion.div
+
+                      key={index}
+
+                      className="feature-item"
+
+                      initial={{ opacity: 0, x: -20 }}
+
+                      animate={{ opacity: 1, x: 0 }}
+
+                      transition={{ delay: 0.3 + index * 0.1 }}
+
+                    >
+
+                      <span className="feature-marker">▹</span>
+
+                      <p>{feature}</p>
+
+                    </motion.div>
+
+                  ))}
+
+                </div>
+
+              </div>
+
+            )}
 
 
 
@@ -396,6 +439,6 @@ const ProjectModal = ({ project, onClose }) => {
 
 
 
-export default ProjectModal; 
+export default ProjectModal;
 
 

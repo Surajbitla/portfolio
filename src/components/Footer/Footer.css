@@ -1,8 +1,9 @@
 .footer {
-  background-color: #2d3436;
-  color: white;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
   padding: 2rem 0;
   margin-top: 4rem;
+  border-top: 1px solid var(--glass-border);
 }
 
 .footer-content {

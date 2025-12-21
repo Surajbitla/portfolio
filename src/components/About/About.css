@@ -1,7 +1,10 @@
 .about {
-  padding: 80px 0; /* Adjust top padding to match navbar height */
-  background-color: #000000; /* Set about section background to black */
-  min-height: 100vh; /* Ensure full viewport height */
+  padding: 80px 0;
+  /* Adjust top padding to match navbar height */
+  background-color: var(--bg-primary);
+  /* Set about section background to theme */
+  min-height: 100vh;
+  /* Ensure full viewport height */
 }
 
 .about-container {
@@ -39,20 +42,23 @@
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
-  color: #ffffff; /* Ensure text is white */
+  color: #ffffff;
+  /* Ensure text is white */
 }
 
 .about-summary {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #ffffff; /* Ensure text is white */
+  color: #ffffff;
+  /* Ensure text is white */
   margin-bottom: 1.5rem;
 }
 
 .about-description {
   font-size: 1.1rem;
   line-height: 1.6;
-  color: #ffffff; /* Ensure text is white */
+  color: #ffffff;
+  /* Ensure text is white */
 }
 
 .highlights-grid {
@@ -92,7 +98,7 @@
   transform: translateY(-5px);
 }
 
-.highlight-card > * {
+.highlight-card>* {
   position: relative;
   z-index: 1;
 }
@@ -109,7 +115,8 @@
 
 .highlight-card h3,
 .highlight-card p {
-  color: #ffffff; /* Ensure text is white */
+  color: #ffffff;
+  /* Ensure text is white */
 }
 
 .about-stats {
@@ -148,7 +155,7 @@
   transform: translateY(-5px);
 }
 
-.stat-item > * {
+.stat-item>* {
   position: relative;
   z-index: 1;
 }
@@ -335,7 +342,7 @@
   transform: translateY(-5px);
 }
 
-.about-card > * {
+.about-card>* {
   position: relative;
   z-index: 1;
 }

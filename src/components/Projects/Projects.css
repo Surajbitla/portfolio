@@ -1,482 +1,130 @@
-.projects {
-  padding: 80px 0;
-  background-color: #000000; /* Set background to black */
-  min-height: 100vh;
-}
-
-.projects-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+.projects-section {
+  padding: 100px 0;
+  position: relative;
 }
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
 
 .project-card {
-  background: var(--card-bg);
-  padding: 2rem;
-  border-radius: 15px;
-  transition: all 0.3s ease;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
   position: relative;
   overflow: hidden;
+  background: var(--glass-bg);
+  /* Ensuring glass-card base is respected but customized */
 }
 
+/* Hover Glow Effect */
 .project-card::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 123, 255, 0.2), rgba(0, 210, 255, 0.2));
-  opacity: 0;
-  transition: all 0.3s ease;
+  right: 0;
+  bottom: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, var(--accent-blue), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .project-card:hover::before {
   opacity: 1;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-.project-card > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Light mode */
-.light-mode .project-card {
-  background: #ffffff;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.light-mode .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
-  background: rgba(0, 123, 255, 0.02);
-}
-
-/* Dark mode */
-.dark-mode .project-card {
-  background: #1a1a1a;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-}
-
-.dark-mode .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
-  background: #2d2d2d;
-}
-
-.project-card h3 {
-  font-size: 1.4rem;
-  color: #2d3436;
-  margin-bottom: 1rem;
-  position: relative;
-  padding-bottom: 0.5rem;
-}
-
-.project-description {
-  color: #636e72;
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
-}
-
-.project-tech {
+.card-content {
+  padding: 0.5rem;
+  /* Inner padding managed by glass-card class usually, but let's refine */
+  flex-grow: 1;
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
+  flex-direction: column;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 1.5rem;
 }
 
-.tech-tag {
-  background-color: rgba(0, 123, 255, 0.1);
-  color: #007bff;
-  padding: 0.4rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.3s ease;
+.folder-icon {
+  font-size: 2.5rem;
+  color: var(--accent-blue);
 }
 
-.tech-tag:hover {
-  background-color: #007bff;
-  color: white;
-  transform: translateY(-2px);
-}
-
-.project-links {
+.project-links-mini {
   display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
 }
 
-.project-links a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 500;
+.project-links-mini a {
+  color: var(--text-tertiary);
+  font-size: 1.25rem;
   transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  background-color: rgba(0, 123, 255, 0.1);
 }
 
-.project-links a:hover {
-  background-color: #007bff;
-  color: white;
+.project-links-mini a:hover {
+  color: var(--accent-cyan);
   transform: translateY(-2px);
 }
 
-.project-type {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
+.project-title {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  transition: color 0.3s ease;
 }
 
-.type-badge {
-  background-color: rgba(255, 193, 7, 0.2);
-  color: #ffc107;
-  padding: 0.3rem 0.8rem;
-  border-radius: 15px;
+.project-card:hover .project-title {
+  color: var(--accent-blue);
+}
+
+.project-desc {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.tech-mini-tag {
   font-size: 0.8rem;
+  color: var(--text-tertiary);
+  font-family: 'Space Mono', monospace;
+  /* or Inter if Space Mono not loaded */
+}
+
+.light-mode .tech-mini-tag {
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
-/* Responsive Design */
+/* Modal specific overrides if needed can persist here or in ProjectModal.css */
+/* Responsiveness */
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
+    padding: 0 1rem;
   }
-
-  .project-card {
-    padding: 1.5rem;
-  }
-
-  .project-links {
-    flex-direction: column;
-  }
-
-  .project-links a {
-    justify-content: center;
-  }
-}
-
-/* Dark Mode Styles */
-.dark-mode .project-card {
-  background: #2d2d2d;
-}
-
-.dark-mode .project-card h3 {
-  color: #ffffff;
-}
-
-.dark-mode .project-description {
-  color: #b3b3b3;
-}
-
-.dark-mode .project-links a {
-  background-color: rgba(52, 152, 219, 0.2);
-}
-
-.dark-mode .project-links a:hover {
-  background-color: #3498db;
-}
-
-.light-mode .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
-  background: rgba(0, 123, 255, 0.02);
-}
-
-.dark-mode .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 15px rgba(0, 123, 255, 0.3);
-  background: #2d2d2d;
-}
-
-.project-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  padding: 20px;
-  backdrop-filter: blur(5px);
-}
-
-.project-modal-content {
-  background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
-  padding: 2.5rem;
-  border-radius: 20px;
-  max-width: 1000px;
-  width: 95%;
-  max-height: 90vh;
-  overflow-y: auto;
-  position: relative;
-  color: white;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-}
-
-.modal-title {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-  background: linear-gradient(45deg, #64ffda, #007bff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.modal-image-carousel {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.modal-image-carousel img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.modal-content-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.modal-main-content h3,
-.modal-sidebar h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #64ffda;
-}
-
-.modal-description {
-  line-height: 1.8;
-  color: #e0e0e0;
-  font-size: 1.1rem;
-}
-
-.modal-tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin: 1rem 0;
-}
-
-.modal-tech-tags .tech-tag {
-  background: rgba(100, 255, 218, 0.1);
-  color: #64ffda;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-}
-
-.modal-links-section {
-  margin-top: 2rem;
-}
-
-.modal-link {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1.2rem;
-  background: rgba(100, 255, 218, 0.1);
-  color: #64ffda;
-  text-decoration: none;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
-}
-
-.modal-link:hover {
-  background: rgba(100, 255, 218, 0.2);
-  transform: translateX(5px);
-}
-
-.modal-close-btn {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.modal-close-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: rotate(90deg);
-}
-
-@media (max-width: 768px) {
-  .modal-content-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .modal-title {
-    font-size: 2rem;
-  }
-  
-  .project-modal-content {
-    padding: 1.5rem;
-  }
-}
-
-/* Update the modal styles for light mode */
-.light-mode .project-modal-overlay {
-  background-color: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(5px);
-}
-
-.light-mode .project-modal-content {
-  background: linear-gradient(145deg, #ffffff, #f8f9fa);
-  color: #333;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-}
-
-.light-mode .modal-title {
-  background: linear-gradient(45deg, #007bff, #00bfff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.light-mode .modal-main-content h3,
-.light-mode .modal-sidebar h3 {
-  color: #007bff;
-}
-
-.light-mode .modal-description,
-.light-mode .modal-full-description p {
-  color: #444;
-}
-
-.light-mode .modal-tech-tags .tech-tag {
-  background: rgba(0, 123, 255, 0.1);
-  color: #007bff;
-}
-
-.light-mode .modal-link {
-  background: rgba(0, 123, 255, 0.1);
-  color: #007bff;
-}
-
-.light-mode .modal-link:hover {
-  background: rgba(0, 123, 255, 0.2);
-}
-
-.light-mode .modal-close-btn {
-  background: rgba(0, 0, 0, 0.1);
-  color: #333;
-}
-
-.light-mode .modal-close-btn:hover {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-/* Keep section titles centered */
-.section-title {
-  text-align: center;
-  width: 100%;
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-  position: relative;
-  /* background: linear-gradient(45deg, #007bff, #00bfff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
-
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100px;
-  height: 3px;
-  background: linear-gradient(90deg, #007bff, #00bfff);
-  transition: width 0.3s ease;
-}
-
-.section-title:hover::after {
-  width: 150px;
-}
-
-/* Update modal image styles for better visibility in light mode */
-.light-mode .modal-image-carousel img {
-  border: 1px solid #e0e0e0;
-}
-
-/* Update scrollbar for modal in light mode */
-.light-mode .project-modal-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.light-mode .project-modal-content::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 4px;
-}
-
-.light-mode .project-modal-content::-webkit-scrollbar-thumb {
-  background: #007bff;
-  border-radius: 4px;
-}
-
-.light-mode .project-modal-content::-webkit-scrollbar-thumb:hover {
-  background: #0056b3;
-}
-
-/* Update these color values in your existing CSS */
-
-.dark-mode .modal-main-content h3,
-.dark-mode .modal-sidebar h3 {
-  color: #007bff; /* Changed from #64ffda to blue */
-}
-
-.dark-mode .modal-tech-tags .tech-tag {
-  background: rgba(0, 123, 255, 0.1); /* Changed from #64ffda to blue */
-  color: #007bff;
-}
-
-.dark-mode .modal-link {
-  background: rgba(0, 123, 255, 0.1);
-  color: #007bff;
-}
-
-.dark-mode .modal-link:hover {
-  background: rgba(0, 123, 255, 0.2);
-}
-
-/* Update the gradient for modal title in dark mode */
-.dark-mode .modal-title {
-  background: linear-gradient(45deg, #007bff, #00bfff); /* Changed from green to blue gradient */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }

@@ -1,6 +1,6 @@
 .education {
   padding: 80px 0;
-  background-color: #000000;
+  background-color: var(--bg-primary);
   min-height: 100vh;
 }
 
@@ -58,7 +58,7 @@
   transform: translateY(-5px);
 }
 
-.education-card > * {
+.education-card>* {
   position: relative;
   z-index: 1;
 }

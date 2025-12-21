@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Robot.css';
-import { FaTimes, FaExpand, FaCompress, FaExternalLinkAlt, FaMicrophone, FaMicrophoneSlash, FaPaperPlane, FaChevronUp, FaChevronDown } from 'react-icons/fa';
+import { motion } from 'framer-motion';
+import { FaTimes, FaExpand, FaCompress, FaExternalLinkAlt, FaMicrophone, FaMicrophoneSlash, FaPaperPlane, FaChevronUp, FaChevronDown, FaRobot } from 'react-icons/fa';
 
 const Robot = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -8,13 +9,13 @@ const Robot = () => {
   const [isMaximized, setIsMaximized] = useState(false);
   const [inputMessage, setInputMessage] = useState('');
   const [messages, setMessages] = useState([
-    { 
-      text: "Hi! I'm your AI assistant! I can help you learn more about Suraj. Try asking about:", 
-      type: 'bot' 
+    {
+      text: "Hi! I'm your AI assistant! I can help you learn more about Suraj. Try asking about:",
+      type: 'bot'
     },
-    { 
-      text: "• Suraj's projects and experience\n• Education and skills\n• Publications and patents\n• Certifications and awards", 
-      type: 'bot' 
+    {
+      text: "• Suraj's projects and experience\n• Education and skills\n• Publications and patents\n• Certifications and awards",
+      type: 'bot'
     }
   ]);
   const [isListening, setIsListening] = useState(false);
@@ -26,12 +27,12 @@ const Robot = () => {
     const handleScroll = () => {
       const heroSection = document.getElementById('home');
       const aboutSection = document.getElementById('about');
-      
+
       if (!heroSection || !aboutSection) return;
 
       const scrollPosition = window.scrollY;
       const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-      
+
       if (scrollPosition >= heroBottom - 100) {
         setIsVisible(true);
       } else {
@@ -46,7 +47,7 @@ const Robot = () => {
   const scrollToSection = (sectionId) => {
     const section = document.getElementById(sectionId);
     const navHeight = document.querySelector('.navbar').offsetHeight;
-    
+
     if (section) {
       window.scrollTo({
         top: section.offsetTop - navHeight,
@@ -57,11 +58,11 @@ const Robot = () => {
 
   const getBotResponse = (userMessage) => {
     const message = userMessage.toLowerCase();
-    
+
     const responses = {
       projects: {
         keywords: ['project', 'projects', 'work'],
-        response: "Suraj has worked on several impressive projects including:\n• E-commerce Platform (ShopRight)\n• Real Estate Sales Analysis\n• DC Travel Guide\n• Enhanced Assisted Vision\nWhich project would you like to know more about?",
+        response: "Suraj has worked on several impressive projects including:\n• Trakvu (AI SaaS Platform)\n• Forgetting LLM System\n• SplitTracr (Distributed AI)\n• ShopRight E-Commerce\nWhich project would you like to know more about?",
         action: {
           text: "View All Projects",
           section: "projects"
@@ -69,7 +70,7 @@ const Robot = () => {
       },
       education: {
         keywords: ['education', 'study', 'university', 'degree'],
-        response: "Suraj holds:\n• MS in Computer Science from Rowan University (GPA: 4/4)\n• BTech in Computer Science from Lovely Professional University\nHe specializes in Data Mining, Web Development, and AI.",
+        response: "Suraj holds:\n• MS in Computer Science from Rowan University (GPA: 4.0/4.0)\n• B.Tech in Computer Science from Sreenidhi Institute\nHe specializes in AI, Data Mining, and Web Development.",
         action: {
           text: "View Education Details",
           section: "education"
@@ -77,7 +78,7 @@ const Robot = () => {
       },
       skills: {
         keywords: ['skills', 'technologies', 'tech stack', 'programming'],
-        response: "Suraj's key skills include:\n• Full Stack Development (Python, ReactJS, ASP.NET)\n• Cloud Technologies (AWS, Azure)\n• Machine Learning & AI\n• Database Management\nWould you like specific details about any of these areas?",
+        response: "Suraj is a Senior Engineer with skills in:\n• Frontend: React 19, Redux, Tailwind\n• Backend: Node.js, Python, ASP.NET\n• AI/ML: LangChain, TensorFlow, PyTorch\n• Cloud: AWS, Docker, Kubernetes\nWould you like specific details?",
         action: {
           text: "View All Skills",
           section: "skills"
@@ -85,15 +86,15 @@ const Robot = () => {
       },
       experience: {
         keywords: ['experience', 'work', 'job', 'career'],
-        response: "Suraj's professional experience includes:\n• Graduate Research Assistant at Rowan University\n• Full Stack Engineer at Creditsafe Technology\n• Application Development Associate at Accenture",
+        response: "Suraj has 5+ years of experience:\n• Software Engineer at Kruse Construction\n• Grad Research Assistant at Rowan University\n• Full Stack Engineer at Creditsafe\n• App Dev Associate at Accenture",
         action: {
           text: "View Full Experience",
           section: "experience"
         }
       },
       publications: {
-        keywords: ['publication', 'research', 'paper'],
-        response: "Suraj has published research on:\n• Computation Offloading for Precision Agriculture\n• SplitTracer: A Cooperative Inference Evaluation Toolkit\nBoth were presented at IEEE ICFEC 2024.",
+        keywords: ['publication', 'research', 'paper', 'patent'],
+        response: "Suraj has published 2 IEEE papers on Split Computing & Edge AI, and holds a patent for an 'Intelligent Traffic Management System'.",
         action: {
           text: "View Publications",
           section: "publications"
@@ -101,14 +102,14 @@ const Robot = () => {
       },
       certifications: {
         keywords: ['certification', 'certificate', 'courses'],
-        response: "Suraj has 30+ certifications including:\n• IBM Data Science Professional Certificate\n• Multiple AWS and Azure certifications\n• NPTEL certifications with excellent performance",
+        response: "Suraj holds key certifications from:\n• AWS (Solutions Architect)\n• Microsoft (Azure Fundamentals)\n• IBM (Data Science)\n• University of Michigan (Python)",
         action: {
           text: "View Certifications",
           section: "certifications"
         }
       },
       default: {
-        response: "Hi!,I can tell you about Suraj's projects, education, skills, experience, publications, or certifications. What would you like to know?",
+        response: "Hi! I can tell you about Suraj's projects, education, skills, experience, publications, or certifications. What would you like to know?",
         action: null
       }
     };
@@ -141,15 +142,15 @@ const Robot = () => {
     setInputMessage('');
     setIsTyping(true);
     setHasNewMessage(true);
-    
+
     setTimeout(scrollToBottom, 100);
-    
+
     const response = getBotResponse(inputMessage);
     setTimeout(() => {
-      setMessages(prev => [...prev, { 
-        text: response.response, 
+      setMessages(prev => [...prev, {
+        text: response.response,
         type: 'bot',
-        action: response.action 
+        action: response.action
       }]);
       setIsTyping(false);
       setTimeout(() => setHasNewMessage(false), 500);
@@ -172,7 +173,7 @@ const Robot = () => {
       recognition.onresult = (event) => {
         const transcript = event.results[0][0].transcript;
         setInputMessage(transcript);
-        handleSendMessage({ preventDefault: () => {} });
+        handleSendMessage({ preventDefault: () => { } });
       };
 
       recognition.start();
@@ -212,12 +213,12 @@ const Robot = () => {
     const response = getBotResponse(question);
     setIsTyping(true);
     setHasNewMessage(true);
-    
+
     setTimeout(() => {
-      setMessages(prev => [...prev, { 
-        text: response.response, 
+      setMessages(prev => [...prev, {
+        text: response.response,
         type: 'bot',
-        action: response.action 
+        action: response.action
       }]);
       setIsTyping(false);
       setTimeout(() => setHasNewMessage(false), 500);
@@ -231,12 +232,21 @@ const Robot = () => {
     <div className="robot-section">
       <div className="robot-greeting">
         <div className="greeting-bubble">Hi there! 👋</div>
-        <img 
-          src="./images/astro-bot-slow.gif" 
-          alt="Friendly Robot" 
-          className="robot-gif"
+        <motion.div
+          className="robot-avatar-wrapper"
           onClick={() => setIsChatOpen(!isChatOpen)}
-        />
+          animate={{ y: [0, -10, 0] }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <div className="robot-avatar-glow"></div>
+          <FaRobot className="robot-icon" />
+        </motion.div>
       </div>
 
       {isChatOpen && (
@@ -244,7 +254,7 @@ const Robot = () => {
           <div className="chat-header">
             <span>Chat with Portfolio Assistant</span>
             <div className="chat-controls">
-              <button 
+              <button
                 className="maximize-btn"
                 onClick={() => setIsMaximized(!isMaximized)}
               >
@@ -255,8 +265,8 @@ const Robot = () => {
               </button>
             </div>
           </div>
-          <div 
-            className="chat-messages" 
+          <div
+            className="chat-messages"
             onScroll={handleMessagesScroll}
           >
             {messages.map((msg, index) => (
@@ -265,7 +275,7 @@ const Robot = () => {
                   <p key={i}>{line}</p>
                 ))}
                 {msg.action && (
-                  <button 
+                  <button
                     className="action-link"
                     onClick={() => scrollToSection(msg.action.section)}
                   >
@@ -282,7 +292,7 @@ const Robot = () => {
               </div>
             )}
             {showScrollButton && (
-              <button 
+              <button
                 className="scroll-bottom-btn"
                 onClick={scrollToBottom}
               >
@@ -310,8 +320,8 @@ const Robot = () => {
               onChange={(e) => setInputMessage(e.target.value)}
               placeholder="Ask about Suraj's portfolio..."
             />
-            <button 
-              type="button" 
+            <button
+              type="button"
               className="voice-btn"
               onClick={startVoiceRecognition}
             >

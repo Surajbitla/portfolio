@@ -1,182 +1,152 @@
 import React, { useCallback } from 'react';
-import './Hero.css';
+import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
-import { loadSlim } from "tsparticles-slim";
 import Particles from "react-particles";
-import CustomCursor from '../CustomCursor/CustomCursor';
+import { loadSlim } from "tsparticles-slim";
+import './Hero.css';
 
 const Hero = () => {
   const particlesInit = useCallback(async (engine) => {
     await loadSlim(engine);
   }, []);
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 10
+      }
+    }
+  };
+
   return (
     <section className="hero" id="home">
-      <CustomCursor />
       <div className="particles-container">
         <Particles
           id="tsparticles"
           init={particlesInit}
+          style={{
+            width: "100%",
+            height: "100%",
+            position: "absolute",
+            top: 0,
+            left: 0
+          }}
           options={{
             fullScreen: { enable: false },
-            background: {
-              color: {
-                value: "transparent",
-              },
-            },
+            background: { color: { value: "transparent" } },
             fpsLimit: 120,
             interactivity: {
-              detect_on: "canvas", // Ensure interaction is only on canvas
               events: {
-                onClick: {
-                  enable: true,
-                  mode: "push",
-                },
-                onHover: {
-                  enable: true,
-                  mode: "grab",
-                  parallax: {
-                    enable: true,
-                    force: 40,
-                    smooth: 10
-                  }
-                },
+                onHover: { enable: true, mode: "grab" },
+                onClick: { enable: true, mode: "push" },
                 resize: true,
               },
               modes: {
-                grab: {
-                  distance: 150,
-                  links: {
-                    opacity: 0.5
-                  }
-                },
-                push: {
-                  quantity: 4,
-                },
+                grab: { distance: 200, links: { opacity: 0.4 } },
+                push: { quantity: 4 },
               },
             },
             particles: {
-              color: {
-                value: "#007bff",
-              },
+              color: { value: "#3b82f6" }, // Accent Blue
               links: {
-                color: "#007bff",
+                color: "#8b5cf6", // Accent Purple
                 distance: 150,
                 enable: true,
-                opacity: 0.3,
+                opacity: 0.2,
                 width: 1,
               },
-              collisions: {
-                enable: false,
-              },
               move: {
-                direction: "none",
                 enable: true,
-                outModes: {
-                  default: "bounce",
-                },
-                random: false,
-                speed: 0.8,
+                speed: 1,
+                direction: "none",
+                random: true,
                 straight: false,
+                outModes: { default: "bounce" },
               },
               number: {
-                density: {
-                  enable: true,
-                  area: 1000,
-                },
-                value: 143,
+                density: { enable: true, area: 800 },
+                value: 80,
               },
-              opacity: {
-                value: 0.5,
-                random: {
-                  enable: true,
-                  minimumValue: 0.2,
-                },
-                animation: {
-                  enable: true,
-                  speed: 0.8,
-                  minimumValue: 0.2,
-                  sync: false,
-                }
-              },
-              shape: {
-                type: "circle",
-              },
-              size: {
-                value: { min: 1, max: 2 },
-                random: {
-                  enable: true,
-                  minimumValue: 1
-                }
-              }
+              opacity: { value: 0.5 },
+              shape: { type: "circle" },
+              size: { value: { min: 1, max: 3 } },
             },
             detectRetina: true,
           }}
         />
       </div>
-      <div className="hero-content">
-        <div className="hero-text">
-          <h1 className="animate-slide-down">
-            Hi, I'm <span className="highlight">Suraj Bitla</span>
-          </h1>
-          <h2 className="animate-slide-down-delay-1">
-            AI Engineer & Full Stack Developer
-          </h2>
-          <p>
-            Specializing in AI-Driven Solutions, Scalable Systems, and Web Development
-          </p>
-          <div className="hero-buttons animate-slide-up">
-            <a 
-              href="#contact" 
-              className="btn primary"
-              onClick={(e) => {
-                e.preventDefault();
-                const contactSection = document.getElementById('contact');
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                window.scrollTo({
-                  top: contactSection.offsetTop - navHeight,
-                  behavior: 'smooth'
-                });
-              }}
-            >
+
+      <motion.div
+        className="hero-content container"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <motion.div variants={itemVariants} className="hero-text-wrapper">
+          <motion.p className="hero-greeting">Hello, world. I am</motion.p>
+          <motion.h1 className="hero-name">
+            Suraj <span className="highlight">Bitla</span>
+          </motion.h1>
+          <motion.h2 className="hero-title">
+            Architecting the <span className="gradient-text">Future of AI</span>.
+          </motion.h2>
+          <motion.p className="hero-description">
+            Senior Full Stack Developer & AI Engineer creating scalable, intelligent systems.
+            Transforming complex problems into elegant solutions.
+          </motion.p>
+
+          <motion.div className="hero-actions" variants={itemVariants}>
+            <a href="#projects" className="btn btn-primary">
+              View Work
+            </a>
+            <a href="/resume/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              Download Resume
+            </a>
+            <a href="#contact" className="btn btn-outline">
               Contact Me
             </a>
-            <a 
-              href="#projects" 
-              className="btn secondary"
-              onClick={(e) => {
-                e.preventDefault();
-                const projectsSection = document.getElementById('projects');
-                const navHeight = document.querySelector('.navbar').offsetHeight;
-                window.scrollTo({
-                  top: projectsSection.offsetTop - navHeight,
-                  behavior: 'smooth'
-                });
-              }}
-            >
-              View Projects
+          </motion.div>
+
+          <motion.div className="hero-socials" variants={itemVariants}>
+            <a href="https://github.com/SurajBitla" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaGithub />
             </a>
-          </div>
-          <div className="hero-badges animate-fade-in">
-            <span className="badge">AWS</span>
-            <span className="badge">Azure</span>
-            <span className="badge">Python</span>
-            <span className="badge">ReactJS</span>
-            <span className="badge">Machine Learning</span>
-          </div>
+            <a href="https://linkedin.com/in/suraj-bitla" target="_blank" rel="noopener noreferrer" className="social-link">
+              <FaLinkedin />
+            </a>
+            <a href="mailto:surajb.5639@gmail.com" className="social-link">
+              <FaEnvelope />
+            </a>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+
+      <motion.div
+        className="scroll-indicator"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{ delay: 2, duration: 2, repeat: Infinity }}
+      >
+        <div className="mouse">
+          <div className="wheel"></div>
         </div>
-        <div className="hero-social animate-fade-in-delay">
-          <a href="https://github.com/SurajBitla" target="_blank" rel="noopener noreferrer">
-            <FaGithub />
-          </a>
-          <a href="https://linkedin.com/in/suraj-bitla" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin />
-          </a>
-          <a href="mailto:surajbitla@gmail.com">
-            <FaEnvelope />
-          </a>
-        </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
