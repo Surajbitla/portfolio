@@ -115,7 +115,7 @@ const Hero = () => {
             <a href="#projects" className="btn btn-primary">
               View Work
             </a>
-            <a href="/resume/resume.pdf" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+            <a href={`${process.env.PUBLIC_URL}/resume/resume.pdf`} target="_blank" rel="noopener noreferrer" className="btn btn-outline" download>
               Download Resume
             </a>
             <a href="#contact" className="btn btn-outline">

@@ -18,8 +18,8 @@ const projectsData = [
       "Subscription Billing: Seamless Stripe integration with tiered pricing models.",
       "Secure Cloud Infra: Nginx reverse proxy with hardened DigitalOcean Droplets."
     ],
-    // link: "https://trakvu.com", // Placeholder if link exists, otherwise omit or use github if mentioned
-    screenshots: []
+    link: "https://trakvu.com", // Placeholder if link exists, otherwise omit or use github if mentioned
+    screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg', 'screenshot4.jpg', 'screenshot5.jpg', 'screenshot6.jpg', 'screenshot7.jpg',]
   },
   {
     id: 'forgetting-llm',
@@ -35,7 +35,7 @@ const projectsData = [
       "Containerized Deployment: Dockerized services for consistent testing and production."
     ],
     github: "https://github.com/Surajbitla/llm",
-    screenshots: []
+    screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png', 'screenshot4.png', 'screenshot5.png', 'screenshot6.png', 'screenshot7.png', 'screenshot8.png']
   },
   {
     id: 'cooperative-inference',
@@ -50,7 +50,7 @@ const projectsData = [
       "Model Support: Works with AlexNet, ResNet50, and YOLOv5 architectures."
     ],
     github: "https://github.com/Surajbitla/racr_ai",
-    screenshots: []
+    screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png', 'screenshot4.png', 'screenshot5.png', 'screenshot6.png']
   },
   {
     id: 'splittracr',
@@ -65,7 +65,7 @@ const projectsData = [
       "Custom Protocols: Optimized data transmission for split neural network tensors."
     ],
     github: "https://github.com/Surajbitla/tracr",
-    screenshots: []
+    screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg']
   },
   {
     id: 'shopright',
@@ -80,7 +80,8 @@ const projectsData = [
       "AWS Deployment: Hosted on EC2 with S3 for static asset delivery."
     ],
     github: "https://github.com/Surajbitla/shopright",
-    screenshots: []
+    screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png', 'screenshot4.png', 'screenshot5.png', 'screenshot6.png', 'screenshot7.png', 'screenshot8.png', 'screenshot9.png', 'screenshot10.png']
+
   },
   {
     id: 'real-estate-analytics',
@@ -95,9 +96,10 @@ const projectsData = [
       "Cloud Integration: Seamlessly integrated with AWS S3 and Databricks clusters."
     ],
     links: {
-      part1: "https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7526939016945756/1723055041762845/6396259126306231/latest.html"
+      part1: "https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7526939016945756/1723055041762845/6396259126306231/latest.html",
+      part2: "https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/7526939016945756/1723055041763209/6396259126306231/latest.html"
     },
-    screenshots: []
+    screenshots: ['screenshot1.png', 'screenshot2.jpg', 'screenshot3.jpg', 'screenshot4.jpg']
   },
   {
     id: 'dc-travel-guide',
@@ -111,8 +113,7 @@ const projectsData = [
       "Interactive Maps: Zoomable overlays of crime density vs. tourist attractions.",
       "Pandas & Seaborn: Advanced statistical analysis for accurate trend forecasting."
     ],
-    link: "https://surajbitla.github.io/DC-Travel-Guide/",
-    screenshots: []
+    screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg']
   },
   {
     id: 'enhanced-vision',
@@ -126,7 +127,7 @@ const projectsData = [
       "Navigation Assist: Identifies doorways, stairs, and pedestrian crossings.",
       "Lightweight Model: Optimized to run on portable hardware/laptops."
     ],
-    screenshots: []
+    screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg']
   }
 ];
 
