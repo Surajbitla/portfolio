@@ -138,18 +138,12 @@
 @media (max-width: 768px) {
   .navbar {
     padding: 0 1.5rem;
+    height: 70px;
   }
 
   .brand-info {
     display: none;
-    /* Save space on mobile */
   }
-
-  /* Hamburger Icon (assuming pure CSS or rendered by React? 
-     React usually renders a button, let's assume we need to style a button) 
-     Actually, looking at previous Navbar.css, it was just .navbar-burger.
-     I'll style it assuming it's a button.
-  */
 
   .navbar-burger {
     display: block;
@@ -158,27 +152,38 @@
     color: var(--text-primary);
     font-size: 1.5rem;
     cursor: pointer;
+    z-index: 1001;
+    position: relative;
   }
 
   .navbar-menu {
-    position: absolute;
-    top: var(--nav-height);
+    position: fixed;
+    top: 70px;
     left: 0;
     width: 100%;
+    height: calc(100vh - 70px);
     background: var(--bg-secondary);
     flex-direction: column;
     padding: 2rem;
     border-bottom: 1px solid var(--glass-border);
-    transform: translateY(-150%);
+    transform: translateX(-100%);
     transition: transform 0.3s ease-in-out;
     opacity: 0;
+    pointer-events: none;
+    z-index: 999;
+    overflow-y: auto;
+    gap: 0;
+  }
+
+  .light-mode .navbar-menu {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
   }
 
   .navbar-menu.active {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
-    display: flex;
-    /* Override previous display:none if needed, but flex-direction handles it */
+    pointer-events: auto;
   }
 
   .navbar-menu a {
@@ -191,5 +196,9 @@
 
   .navbar-menu a:last-child {
     border-bottom: none;
+  }
+
+  .theme-toggle-btn {
+    z-index: 1001;
   }
 }
