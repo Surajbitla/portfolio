@@ -121,6 +121,14 @@
   border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
+.light-mode .date-badge {
+  background: var(--accent-blue);
+  /* Solid blue */
+  color: white;
+  /* White text remains readable on solid blue */
+  border: none;
+}
+
 .role-header {
   display: flex;
   align-items: center;

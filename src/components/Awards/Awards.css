@@ -136,10 +136,22 @@
   .award-card {
     padding: 1.5rem;
   }
+
+  .award-card {
+    padding: 1.5rem;
+  }
+}
+
+.light-mode .award-card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background: white;
 }
 
 .dark-mode .award-card {
   background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Explicit dark mode border */
 }
 
 .dark-mode .award-card h3,

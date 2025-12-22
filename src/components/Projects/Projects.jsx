@@ -6,7 +6,7 @@ import ProjectModal from './ProjectModal';
 
 const projectsData = [
   {
-    id: 'trakvu-saas',
+    id: 'trakvu',
     title: 'Trakvu - AI SaaS Platform',
     description: 'AI-powered platform for proposal comparison and contractor evaluation.',
     fullDescription: 'Designed and engineered Trakvu, a full SaaS platform built with React 19, TypeScript, and Node.js. It uses LangChain and FAISS for semantic proposal comparison, automated risk tagging, and LLM-driven insights (GPT-4/Gemini). Includes Stripe subscription billing and secure cloud deployment.',
@@ -38,7 +38,7 @@ const projectsData = [
     screenshots: ['screenshot1.png', 'screenshot2.png', 'screenshot3.png', 'screenshot4.png', 'screenshot5.png', 'screenshot6.png', 'screenshot7.png', 'screenshot8.png']
   },
   {
-    id: 'cooperative-inference',
+    id: 'precision-agriculture',
     title: 'Cooperative Inference Framework',
     description: 'Split computing framework for deep learning in precision agriculture.',
     fullDescription: 'Engineered a framework to split deep learning workloads (AlexNet, ResNet, YOLO) between edge devices and servers. Reduces latency and energy consumption by dynamically adapting to network conditions.',
@@ -68,7 +68,7 @@ const projectsData = [
     screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg']
   },
   {
-    id: 'shopright',
+    id: 'ecommerce',
     title: 'ShopRight E-Commerce',
     description: 'Scalable e-commerce platform with secure auth and cart management.',
     fullDescription: 'Developed a full-featured e-commerce app with ReactJS and Node.js. Implemented JWT authentication, role-based access, product catalogs, and optimized MySQL queries for high concurrency. Deployed on AWS.',
@@ -84,7 +84,7 @@ const projectsData = [
 
   },
   {
-    id: 'real-estate-analytics',
+    id: 'real-estate',
     title: 'Real Estate Analytics',
     description: 'Databricks pipeline for analyzing real estate trends.',
     fullDescription: 'Built a pipeline to clean and aggregate Connecticut real estate data. Analyzed pricing trends and sales ratios using SQL and Python. Delivered insights via dashboards on AWS.',
@@ -102,7 +102,7 @@ const projectsData = [
     screenshots: ['screenshot1.png', 'screenshot2.jpg', 'screenshot3.jpg', 'screenshot4.jpg']
   },
   {
-    id: 'dc-travel-guide',
+    id: 'dc-travel',
     title: 'DC Travel Guide',
     description: 'Travel guide utilizing crime data for visitor safety.',
     fullDescription: 'Innovative guide using crime statistics to visualize safety trends in Washington DC. Features heat maps and recommendations for safe neighborhoods and hotels.',

@@ -142,6 +142,12 @@
   transition: all 0.3s ease;
 }
 
+.light-mode .social-link {
+  color: var(--text-secondary);
+  background-color: var(--glass-border);
+  /* Darker gray for visibility */
+}
+
 .social-link:hover {
   color: var(--text-primary);
   transform: scale(1.1);
