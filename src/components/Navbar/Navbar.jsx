@@ -90,7 +90,7 @@ const Navbar = ({ darkMode, toggleTheme }) => {
         />
         <div className="brand-info">
           <span className="brand-title">Suraj Bitla</span>
-          <span className="brand-role">Senior Software Engineer</span>
+          <span className="brand-role">Software Engineer</span>
         </div>
       </div>
 

@@ -107,7 +107,7 @@ const Hero = () => {
             Architecting the <span className="gradient-text">Future of AI</span>.
           </motion.h2>
           <motion.p className="hero-description">
-            Senior Full Stack Developer & AI Engineer creating scalable, intelligent systems.
+            Full Stack Developer & AI Engineer creating scalable, intelligent systems.
             Transforming complex problems into elegant solutions.
           </motion.p>
 

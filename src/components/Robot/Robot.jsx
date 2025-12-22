@@ -78,7 +78,7 @@ const Robot = () => {
       },
       skills: {
         keywords: ['skills', 'technologies', 'tech stack', 'programming'],
-        response: "Suraj is a Senior Engineer with skills in:\n• Frontend: React 19, Redux, Tailwind\n• Backend: Node.js, Python, ASP.NET\n• AI/ML: LangChain, TensorFlow, PyTorch\n• Cloud: AWS, Docker, Kubernetes\nWould you like specific details?",
+        response: "Suraj is a Software Engineer with skills in:\n• Frontend: React 19, Redux, Tailwind\n• Backend: Node.js, Python, ASP.NET\n• AI/ML: LangChain, TensorFlow, PyTorch\n• Cloud: AWS, Docker, Kubernetes\nWould you like specific details?",
         action: {
           text: "View All Skills",
           section: "skills"
