@@ -16,7 +16,8 @@ const Certifications = () => {
 
   // Update the image paths to use public URL
   const getPublicImageUrl = (imagePath) => {
-    return process.env.PUBLIC_URL + imagePath;
+    const normalizedPath = imagePath.startsWith('/') ? imagePath.slice(1) : imagePath;
+    return `${import.meta.env.BASE_URL}${normalizedPath}`;
   };
 
   const certifications = [
