@@ -7,32 +7,37 @@ const skillCategories = [
   {
     icon: <FaCode />,
     title: "Programming Languages",
-    skills: ["Python", "JavaScript", "TypeScript", "Java", "SQL", "C++", "C", "R"]
+    skills: ["Python", "TypeScript", "JavaScript", "Java 17", "SQL", "C++", "C", "R"]
   },
   {
     icon: <FaCode />,
     title: "Frontend Development",
-    skills: ["React 19", "React.js", "HTML5", "CSS3", "Tailwind CSS", "Redux", "Webpack"]
+    skills: ["React 19", "Angular", "Next.js", "Redux", "Tailwind CSS", "HTML5", "CSS3", "Vite", "Webpack"]
   },
   {
     icon: <FaServer />,
     title: "Backend & APIs",
-    skills: ["Node.js", "Express.js", "FastAPI", "Spring Boot", "REST APIs", "GraphQL", "Django", "Flask"]
-  },
-  {
-    icon: <FaDatabase />,
-    title: "Databases",
-    skills: ["MySQL", "PostgreSQL", "Oracle DB", "Redis", "MongoDB", "SQL Server"]
+    skills: ["Node.js", "NestJS", "Fastify", "Express.js", "Spring Boot", "FastAPI", "GraphQL", "tRPC", "REST APIs", "Django", "Flask"]
   },
   {
     icon: <FaBrain />,
     title: "AI & Machine Learning",
-    skills: ["LangChain", "GPT-4", "RAG Pipelines", "PyTorch", "TensorFlow", "Ollama", "FAISS", "Computer Vision"]
+    skills: ["LangChain", "GPT-4", "Gemini", "Llama / Ollama", "RAG Pipelines", "Vector Databases", "FAISS", "MCP", "PyTorch", "TensorFlow", "Computer Vision", "DETR / YOLO"]
+  },
+  {
+    icon: <FaDatabase />,
+    title: "Databases & Data",
+    skills: ["PostgreSQL", "MySQL", "DynamoDB", "Amazon Redshift", "Oracle DB", "MongoDB", "Redis", "SQL Server", "Databricks"]
   },
   {
     icon: <FaCloud />,
     title: "Cloud & DevOps",
-    skills: ["AWS (EC2, S3, RDS)", "DigitalOcean", "Docker", "Kubernetes", "Nginx", "CI/CD", "Jenkins", "Linux/Ubuntu"]
+    skills: ["AWS (EC2, S3, RDS)", "DigitalOcean", "Azure", "Docker", "Kubernetes", "Nginx", "CI/CD", "Jenkins", "Azure DevOps", "Linux/Ubuntu", "PM2"]
+  },
+  {
+    icon: <FaTools />,
+    title: "Architecture & Platform",
+    skills: ["Apollo Federation", "Kong API Gateway", "Nx Monorepo", "Microservices", "Multi-tenant SaaS", "Split Computing", "Edge AI", "RBAC & Auth", "Stripe Billing"]
   }
 ];
 
