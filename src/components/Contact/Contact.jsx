@@ -33,7 +33,7 @@ const Contact = () => {
             <p>Feel free to reach out for collaborations or just a friendly hello</p>
 
             <div className="contact-links">
-              <a href="mailto:surajb.5639@gmail.com" className="contact-link">
+              <a href="mailto:surajbitla98@gmail.com" className="contact-link">
                 <FaEnvelope />
                 <span>Email Me</span>
               </a>
@@ -45,9 +45,9 @@ const Contact = () => {
                 <FaGithub />
                 <span>GitHub</span>
               </a>
-              <a href="tel:+1234567890" className="contact-link">
+              <a href="tel:+18562448335" className="contact-link">
                 <FaPhone />
-                <span>Call Me</span>
+                <span>(856) 244-8335</span>
               </a>
             </div>
           </div>

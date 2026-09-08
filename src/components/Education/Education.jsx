@@ -19,7 +19,7 @@ const Education = () => {
       university: "Sreenidhi Institute of Science and Technology",
       location: "Hyderabad, India",
       period: "Aug 2016 – Jun 2020",
-      gpa: "GPA: 9.3/10",
+      gpa: "GPA: 9.35/10",
       specialization: "Specialization: Software Engineering, Database Management, Computer Networks"
     }
   ];

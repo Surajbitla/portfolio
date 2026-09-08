@@ -130,7 +130,7 @@ const Hero = () => {
             <a href="https://linkedin.com/in/suraj-bitla" target="_blank" rel="noopener noreferrer" className="social-link">
               <FaLinkedin />
             </a>
-            <a href="mailto:surajb.5639@gmail.com" className="social-link">
+            <a href="mailto:surajbitla98@gmail.com" className="social-link">
               <FaEnvelope />
             </a>
           </motion.div>
