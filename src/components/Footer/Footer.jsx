@@ -15,7 +15,7 @@ const Footer = () => {
           <a href="https://github.com/SurajBitla" target="_blank" rel="noopener noreferrer">
             <FaGithub />
           </a>
-          <a href="mailto:surajb.5639@gmail.com">
+          <a href="mailto:surajbitla98@gmail.com">
             <FaEnvelope />
           </a>
         </div>

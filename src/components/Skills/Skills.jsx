@@ -7,37 +7,42 @@ const skillCategories = [
   {
     icon: <FaCode />,
     title: "Programming Languages",
-    skills: ["Python", "TypeScript", "JavaScript", "Java 17", "SQL", "C++", "C", "R"]
+    skills: ["Python", "TypeScript", "JavaScript", "Java 17", "SQL", "C#", "C++"]
+  },
+  {
+    icon: <FaBrain />,
+    title: "AI & LLM Engineering",
+    skills: ["LangChain", "LangGraph", "RAG Pipelines", "MCP Servers", "Agentic Systems", "Context Engineering", "GPT-4", "Gemini", "Llama / Ollama", "AWS Bedrock", "GCP Vertex AI", "Hugging Face", "sentence-transformers", "FAISS", "Pinecone", "PyTorch", "TensorFlow", "Computer Vision", "Split Computing"]
+  },
+  {
+    icon: <FaTools />,
+    title: "AI Tooling",
+    skills: ["Claude Code", "Cursor", "Codex / Codex CLI", "Gemini CLI", "GitHub Copilot"]
   },
   {
     icon: <FaCode />,
-    title: "Frontend Development",
-    skills: ["React 19", "Angular", "Next.js", "Redux", "Tailwind CSS", "HTML5", "CSS3", "Vite", "Webpack"]
+    title: "Frontend",
+    skills: ["React 19", "Next.js", "Angular", "Redux", "Tailwind CSS", "HTML/CSS", "Component-Driven Architecture"]
   },
   {
     icon: <FaServer />,
     title: "Backend & APIs",
-    skills: ["Node.js", "NestJS", "Fastify", "Express.js", "Spring Boot", "FastAPI", "GraphQL", "tRPC", "REST APIs", "Django", "Flask"]
-  },
-  {
-    icon: <FaBrain />,
-    title: "AI & Machine Learning",
-    skills: ["LangChain", "GPT-4", "Gemini", "Llama / Ollama", "RAG Pipelines", "Vector Databases", "FAISS", "MCP", "PyTorch", "TensorFlow", "Computer Vision", "DETR / YOLO"]
+    skills: ["Node.js / Express", "NestJS", "Fastify", "FastAPI", "Django", "Spring Boot", "GraphQL", "Apollo Federation", "tRPC", "REST APIs", "Microservices"]
   },
   {
     icon: <FaDatabase />,
-    title: "Databases & Data",
-    skills: ["PostgreSQL", "MySQL", "DynamoDB", "Amazon Redshift", "Oracle DB", "MongoDB", "Redis", "SQL Server", "Databricks"]
+    title: "Data",
+    skills: ["PostgreSQL", "MySQL", "Oracle Database", "Redis", "DynamoDB", "Amazon Redshift"]
   },
   {
     icon: <FaCloud />,
     title: "Cloud & DevOps",
-    skills: ["AWS (EC2, S3, RDS)", "DigitalOcean", "Azure", "Docker", "Kubernetes", "Nginx", "CI/CD", "Jenkins", "Azure DevOps", "Linux/Ubuntu", "PM2"]
+    skills: ["AWS (EC2, S3, RDS, Bedrock)", "Azure / Azure DevOps", "GCP (Vertex AI)", "DigitalOcean", "Docker", "Terraform", "Nginx", "PM2", "Kong API Gateway", "Nx Monorepo", "GitHub Actions", "Jenkins", "Linux / Ubuntu", "CI/CD"]
   },
   {
     icon: <FaTools />,
-    title: "Architecture & Platform",
-    skills: ["Apollo Federation", "Kong API Gateway", "Nx Monorepo", "Microservices", "Multi-tenant SaaS", "Split Computing", "Edge AI", "RBAC & Auth", "Stripe Billing"]
+    title: "Practices",
+    skills: ["Multi-tenant SaaS Architecture", "Role-Based Access Control", "Stripe Billing Integration", "Agile / Scrum", "Design & Code Review", "Technical Mentorship"]
   }
 ];
 

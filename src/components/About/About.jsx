@@ -34,7 +34,7 @@ const About = () => {
           <div className="about-card">
             <div className="about-text">
               <p className="about-summary">
-                Full Stack Developer and AI Engineer with 6+ years of experience building production systems across enterprise finance, SaaS, and applied research. Currently developing enterprise investment platforms at Vanguard while leading AI product engineering for Trakvu and Chantro — multi-tenant SaaS platforms serving the construction industry.
+                Software engineer with 5+ years across enterprise, startup, and research engineering, and three years building applied AI systems. Currently developing enterprise investment platforms at Vanguard while leading AI product engineering for Trakvu and Chantro — multi-tenant SaaS platforms serving the construction industry.
               </p>
               <p className="about-description">
                 My work spans LLM-driven features built with LangChain, GPT-4, and RAG pipelines; distributed services using Apollo Federation, GraphQL, and Kong; and edge AI optimization on NVIDIA Jetson hardware. That last thread became five peer-reviewed IEEE and ACM publications on split computing — research that cut inference latency by up to 94% on CPU-only edge devices. I care about systems that stay fast, stay maintainable, and actually reach production.
@@ -56,7 +56,7 @@ const About = () => {
 
           <div className="about-stats">
             <div className="stat-item">
-              <span className="stat-number">6+</span>
+              <span className="stat-number">5+</span>
               <span className="stat-label">Years Experience</span>
             </div>
             <div className="stat-item">

@@ -99,37 +99,36 @@ const Experience = () => {
     },
     {
       icon: <FaGraduationCap />,
-      title: "Graduate Research Assistant",
+      title: "Research Assistant",
       company: "Rowan University",
-      employment: "Research",
+      employment: "Part-time",
       location: "Glassboro, New Jersey, USA",
       period: "Jun 2023 – Dec 2024",
-      summary: "Researched edge AI, cooperative inference, and split computing for resource-constrained devices — work that produced five peer-reviewed IEEE and ACM publications.",
+      summary: "Research in edge AI, computer vision, and cooperative inference — making deep learning models run efficiently on resource-constrained hardware. Produced five peer-reviewed IEEE and ACM publications.",
       responsibilities: [
-        "Conducted research in edge AI, cooperative inference, and agricultural robotics on low-power IoT devices.",
-        "Built and evaluated computer vision models (classification, detection, segmentation) using PyTorch and TensorFlow for precision agriculture.",
-        "Designed split-inference pipelines that cut inference latency by 40% and energy consumption by 35%.",
-        "Developed ROS modules for NVIDIA Jetson TX2/Orin for real-time sensing and inference.",
-        "Published peer-reviewed work at IEEE ICFEC, ICEP, ICDMW, and ICMLA."
+        "Designed split-computing systems partitioning deep learning inference between edge devices and servers, cutting inference latency 94%, energy 93%, and edge memory use 90% on COCO 2017 and a precision-agriculture dataset — enabling transformer-based object detection on CPU-only edge hardware.",
+        "Built SplitTracr, an evaluation framework for cooperative inference measuring latency and energy across edge, network, and server tiers, and quantifying AES-CBC/CTR encryption overhead for privacy-sensitive deployments.",
+        "Developed and evaluated classification, detection, and segmentation models (AlexNet, ResNet, Faster R-CNN, Mask R-CNN, DETR) in PyTorch and TensorFlow.",
+        "Built ROS applications on NVIDIA Jetson TX2/Orin for real-time sensing, preprocessing, and on-device inference in agricultural robotics.",
+        "Co-authored five IEEE/ACM publications; mentored junior researchers and maintained reproducible, version-controlled research pipelines."
       ],
       technologies: ["PyTorch", "TensorFlow", "ROS", "NVIDIA Jetson", "Edge AI", "Computer Vision", "Python", "DETR"]
     },
     {
       icon: <FaBriefcase />,
       title: "Full Stack Engineer",
-      company: "Creditsafe",
+      company: "Creditsafe Technology",
       employment: "Full-time",
       location: "Hyderabad, India",
       period: "Jul 2022 – Dec 2022",
-      summary: "Built enterprise analytics dashboards and automated data pipelines for commercial credit reporting.",
+      summary: "Built full-stack enterprise applications for financial risk and reporting, deployed across AWS and Azure.",
       responsibilities: [
-        "Built enterprise analytics dashboards using ReactJS, ExpressJS, Python, and Oracle DB.",
-        "Implemented dynamic UI rendering, improving page performance by 40%.",
-        "Automated recurring ETL processes using Python, reducing manual workload by 50%.",
-        "Tuned database performance across Oracle and PostgreSQL through indexing and query optimization.",
-        "Used AWS and Azure services for hosting, monitoring, and scaling microservices."
+        "Built full-stack enterprise applications for financial risk and reporting using ReactJS, Python, ASP.NET, and Oracle Database, deployed across AWS and Microsoft Azure.",
+        "Designed and secured REST APIs for authentication, analytics, and data synchronization across distributed services.",
+        "Tuned Oracle Database performance through indexing strategy and query restructuring.",
+        "Delivered in Agile sprints alongside QA and DevOps, covering feature work, testing, debugging, and continuous delivery."
       ],
-      technologies: ["ReactJS", "ExpressJS", "Python", "Oracle DB", "AWS", "Azure", "ETL", "PostgreSQL"]
+      technologies: ["ReactJS", "Python", "ASP.NET", "Oracle DB", "REST APIs", "AWS", "Azure", "Agile"]
     },
     {
       icon: <FaBriefcase />,
@@ -140,29 +139,13 @@ const Experience = () => {
       period: "Oct 2020 – Jul 2022",
       summary: "Modernized legacy enterprise applications for multi-client systems and strengthened CI/CD reliability.",
       responsibilities: [
-        "Modernized legacy enterprise applications by migrating front-end modules from ASP.NET to React.js.",
-        "Developed reusable UI components and integrated APIs for multi-client enterprise systems.",
-        "Improved CI/CD reliability by enhancing Azure DevOps pipelines and automating builds.",
-        "Delivered features across 10+ sprints and mentored junior associates on React workflows."
+        "Migrated legacy ASP.NET front-end modules to React across multi-client enterprise systems, building responsive applications and reusable UI components.",
+        "Improved CI/CD reliability through Azure DevOps pipeline work, build automation, and Git branching strategy.",
+        "Resolved production issues and ran functional and regression testing across multiple client accounts.",
+        "Mentored junior associates through knowledge-transfer sessions on React, version control, and deployment workflows."
       ],
       technologies: ["React.js", "ASP.NET", "Azure DevOps", "SQL Server", "CI/CD", "JavaScript"]
     },
-    {
-      icon: <FaCode />,
-      title: "Full Stack Developer",
-      company: "Cipla",
-      employment: "Full-time",
-      location: "Hyderabad, India",
-      period: "Oct 2019 – Oct 2020",
-      summary: "Developed manufacturing operations software and real-time production dashboards for pharmaceutical plants.",
-      responsibilities: [
-        "Developed enterprise applications using Java, Spring Boot, and microservices for manufacturing operations.",
-        "Created secure backend APIs integrated with ERP/MIS systems for real-time tracking.",
-        "Built dashboards using React.js to visualize plant metrics and production KPIs.",
-        "Managed deployments using Jenkins and Docker on AWS EC2/RDS."
-      ],
-      technologies: ["Java", "Spring Boot", "Microservices", "React.js", "AWS", "Docker", "Jenkins", "PostgreSQL"]
-    }
   ];
 
   const targetRef = useRef(null);
