@@ -1,28 +1,28 @@
 import React from 'react';
 import './About.css';
-import { FaCode, FaCloud, FaBrain, FaUsers } from 'react-icons/fa';
+import { FaCode, FaCloud, FaBrain, FaBook } from 'react-icons/fa';
 
 const About = () => {
   const highlights = [
     {
       icon: <FaCode />,
       title: "Full Stack Development",
-      description: "Expertise in Python, Java, ReactJS, and ASP.NET"
+      description: "React, Angular, Next.js, Node.js, NestJS, Java, and Python"
     },
     {
       icon: <FaCloud />,
-      title: "Cloud Technologies",
-      description: "Proficient in AWS and Azure cloud services"
+      title: "Cloud & Distributed Systems",
+      description: "AWS, Azure, DigitalOcean, Docker, and federated service architectures"
     },
     {
       icon: <FaBrain />,
-      title: "Machine Learning",
-      description: "Specialized in ML, computer vision, and ADAS systems"
+      title: "AI & LLM Engineering",
+      description: "RAG pipelines, LangChain, multi-model LLM systems, and edge AI"
     },
     {
-      icon: <FaUsers />,
-      title: "Team Collaboration",
-      description: "Strong experience in agile development and team leadership"
+      icon: <FaBook />,
+      title: "Published Research",
+      description: "5 peer-reviewed IEEE & ACM papers on split computing and edge AI"
     }
   ];
 
@@ -34,10 +34,10 @@ const About = () => {
           <div className="about-card">
             <div className="about-text">
               <p className="about-summary">
-                Software Engineer with 5+ years of experience in full-stack development, backend engineering, AI integration, and cloud-based deployment. Skilled in building scalable, production-ready systems using React 19, Node.js, Express.js, and MySQL, with a strong focus on performance and maintainability.
+                Full Stack Developer and AI Engineer with 6+ years of experience building production systems across enterprise finance, SaaS, and applied research. Currently developing enterprise investment platforms at Vanguard while leading AI product engineering for Trakvu and Chantro — multi-tenant SaaS platforms serving the construction industry.
               </p>
               <p className="about-description">
-                Experienced in integrating LLM-driven features using LangChain, GPT-4, and RAG pipelines for intelligent decision support. My background spans edge AI optimization on Jetson devices, cloud infrastructure on AWS/DigitalOcean, and secure API design. I thrive in leading engineering teams, delivering measurable improvements in reliability and user experience.
+                My work spans LLM-driven features built with LangChain, GPT-4, and RAG pipelines; distributed services using Apollo Federation, GraphQL, and Kong; and edge AI optimization on NVIDIA Jetson hardware. That last thread became five peer-reviewed IEEE and ACM publications on split computing — research that cut inference latency by up to 94% on CPU-only edge devices. I care about systems that stay fast, stay maintainable, and actually reach production.
               </p>
             </div>
           </div>
@@ -56,7 +56,7 @@ const About = () => {
 
           <div className="about-stats">
             <div className="stat-item">
-              <span className="stat-number">5+</span>
+              <span className="stat-number">6+</span>
               <span className="stat-label">Years Experience</span>
             </div>
             <div className="stat-item">
@@ -64,7 +64,7 @@ const About = () => {
               <span className="stat-label">Certifications</span>
             </div>
             <div className="stat-item">
-              <span className="stat-number">2</span>
+              <span className="stat-number">5</span>
               <span className="stat-label">Publications</span>
             </div>
             <div className="stat-item">

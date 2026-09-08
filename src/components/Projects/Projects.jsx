@@ -7,19 +7,35 @@ import ProjectModal from './ProjectModal';
 const projectsData = [
   {
     id: 'trakvu',
-    title: 'Trakvu - AI SaaS Platform',
-    description: 'AI-powered platform for proposal comparison and contractor evaluation.',
-    fullDescription: 'Designed and engineered Trakvu, a full SaaS platform built with React 19, TypeScript, and Node.js. It uses LangChain and FAISS for semantic proposal comparison, automated risk tagging, and LLM-driven insights (GPT-4/Gemini). Includes Stripe subscription billing and secure cloud deployment.',
-    technologies: ["React 19", "Node.js", "LangChain", "GPT-4", "Stripe", "Docker"],
+    title: 'Trakvu — AI Construction Intelligence SaaS',
+    description: 'Multi-tenant AI SaaS for proposal comparison, contractor evaluation, and risk analysis.',
+    fullDescription: 'Architected and built Trakvu from concept to production — a multi-tenant SaaS platform for the construction industry. Built with React 19, TypeScript, and Node.js, it uses LangChain and FAISS for semantic proposal comparison, automated risk tagging, and LLM-driven insights across GPT-4, Gemini, and Llama with a custom multi-model fallback. Includes Stripe subscription billing, role-based access control, background workers, and hardened cloud deployment.',
+    technologies: ["React 19", "TypeScript", "Node.js", "LangChain", "GPT-4", "FAISS", "MySQL", "Stripe", "Docker", "Nginx"],
     features: [
-      "AI-Powered Proposal Analysis: Automated comparison using GPT-4 & embedding models.",
-      "Smart Risk Tagging: Semantic search identifies potential risks in contractor proposals.",
-      "Multi-LLM Architecture: Fallback system using Gemini & Llama for 99.9% uptime.",
-      "Subscription Billing: Seamless Stripe integration with tiered pricing models.",
-      "Secure Cloud Infra: Nginx reverse proxy with hardened DigitalOcean Droplets."
+      "AI-Powered Proposal Analysis: Automated comparison using GPT-4 and embedding models.",
+      "Smart Risk Tagging: Semantic search surfaces potential risks in contractor proposals.",
+      "Multi-LLM Architecture: Fallback across GPT-4, Gemini, and Llama for resilient inference.",
+      "Multi-Tenant Isolation: Role-based access control with per-tenant data separation.",
+      "Subscription Billing: Stripe integration with tiered pricing and automated onboarding.",
+      "Secure Cloud Infra: Nginx reverse proxy, PM2 process management, hardened Ubuntu droplets."
     ],
-    link: "https://trakvu.com", // Placeholder if link exists, otherwise omit or use github if mentioned
+    link: "https://trakvu.com",
     screenshots: ['screenshot1.jpg', 'screenshot2.jpg', 'screenshot3.jpg', 'screenshot4.jpg', 'screenshot5.jpg', 'screenshot6.jpg', 'screenshot7.jpg',]
+  },
+  {
+    id: 'chantro',
+    title: 'Chantro — AI Estimating & Document Intelligence',
+    description: 'Generative-AI platform automating construction estimating and document workflows.',
+    fullDescription: 'Designed and built Chantro end to end — a SaaS platform that applies generative AI to construction estimating, document intelligence, and project operations. Uses RAG over vector databases to extract structured data from plans, specs, and bid documents, then drives automated estimating and knowledge retrieval. Built on Next.js and Node.js with tRPC APIs, PostgreSQL, and background job processing.',
+    technologies: ["Next.js", "TypeScript", "Node.js", "tRPC", "PostgreSQL", "RAG", "Vector DBs", "Redis", "AWS"],
+    features: [
+      "Document Intelligence: RAG pipelines extract structured data from plans, specs, and bids.",
+      "Automated Estimating: LLM-assisted quantity takeoff and cost projection from source documents.",
+      "Knowledge Retrieval: Semantic search across a project's full document history.",
+      "Background Workers: Queued processing for long-running document ingestion jobs.",
+      "Production Infrastructure: Dockerized services with Redis caching and CI/CD deployment."
+    ],
+    screenshots: []
   },
   {
     id: 'forgetting-llm',
